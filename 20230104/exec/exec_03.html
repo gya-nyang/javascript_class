@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>영화 슬라이드 만들기</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+
+        ul {
+            list-style:none;
+        }
+
+        img {
+            display:block;
+            width:100%;
+        }
+
+        article {
+            display:flex;
+            flex-wrap:wrap;
+        }
+
+        i.fas {
+            display:block;
+            width:30px;
+            background:#f1f1f1;
+            text-align:center;
+            cursor:pointer;
+            line-height:60px;
+        }
+
+        .thumb {
+            width:calc(100% - 60px);
+            display:flex;
+        }
+        .thumb li {
+            width:calc(100% / 8);
+            box-sizing:border-box;
+            overflow:hidden;
+            position:relative;
+        }
+
+        .thumb li:hover::after,
+        .thumb li.on::after {
+            content:'';
+            display:block;
+            width:100%;
+            height:100%;
+
+            position:absolute;
+            left:0;
+            top:0;
+            border:5px solid #f24443;
+            box-sizing:border-box;
+        }
+
+        .thumb li img {
+            width:100%;
+            height:100%;
+            object-fit: cover;
+        }
+
+        #img_box {
+            width:100%;
+        }
+
+        #img_box img {
+            width:100%;
+        }
+
+
+    </style>
+</head>
+<body>
+    <section>
+        <h2>포토</h2>
+        <p id="img_num_box"></p>
+        
+
+
+        <article>
+            <i class="fas fa-angle-left"></i>
+            <ul class="thumb">
+                <li class="on">
+                    <img src="./images/movie_image_01.jpg" alt="썸네일 이미지">
+                </li>
+                <li>
+                    <img src="./images/movie_image_02.jpg" alt="썸네일 이미지">
+                </li>
+                <li>
+                    <img src="./images/movie_image_03.jpg" alt="썸네일 이미지">
+                </li>
+                <li>
+                    <img src="./images/movie_image_04.jpg" alt="썸네일 이미지">
+                </li>
+                <li>
+                    <img src="./images/movie_image_05.jpg" alt="썸네일 이미지">
+                </li>
+                <li>
+                    <img src="./images/movie_image_06.jpg" alt="썸네일 이미지">
+                </li>
+                <li>
+                    <img src="./images/movie_image_07.jpg" alt="썸네일 이미지">
+                </li>
+                <li>
+                    <img src="./images/movie_image_08.jpg" alt="썸네일 이미지">
+                </li>
+            </ul>
+            <i class="fas fa-angle-right"></i>
+
+            <div id="img_box">
+                <img src="./images/movie_image_01.jpg" alt="스틸컷">
+            </div>
+        </article>
+    </section>
+
+    <script>
+        let thumb = document.querySelectorAll('.thumb li');
+        let img_box = document.querySelector('#img_box img');
+
+        let img_num_box = document.querySelector('#img_num_box');
+        let img_num = 1; // 초기값 선언!!! 전역변수로 만들어 줄 수 있는 중요한 포인트!!!
+
+        let l_btn = document.querySelector('.fa-angle-left');
+        let r_btn = document.querySelector('.fa-angle-right');
+
+        img_num_box.innerText = `1/${thumb.length}건`;
+        
+        thumb.forEach(function(e, i){
+            e.addEventListener('click', function(){
+                // 썸네일 클릭, 이미지 변경
+                let src = this.children[0].src
+                img_box.src = img_box.src.replace(img_box.src, src);
+
+                // 이미지 번호 표시
+                img_num = i + 1;
+                img_num_box.innerText = `${img_num}/${thumb.length}건`;
+
+                // 클릭한 요소에 on 클래스 추가 
+
+                thumb.forEach(function(a){
+                    // 일단 모든 요소에서 on 클래스를 지우기
+                    a.classList.remove('on');
+                });
+                this.classList.add('on');
+            });
+        });
+
+        l_btn.addEventListener('click',function(){
+            if(img_num == 1){
+                img_num = thumb.length;
+            }else{
+                img_num--;
+            }
+            img_num_box.innerText = `${img_num}/${thumb.length}건`;
+            img_box.src = img_box.src.replace(img_box.src, thumb[img_num - 1].children[0].src);
+        });
+
+        r_btn.addEventListener('click',function(){
+            if(img_num == thumb.length){
+                img_num = 1;
+            }else{
+                img_num++;
+            }
+            img_num_box.innerText = `${img_num}/${thumb.length}건`;
+            img_box.src = img_box.src.replace(img_box.src, thumb[img_num - 1].children[0].src);
+        });
+    </script>
+</body>
+</html>

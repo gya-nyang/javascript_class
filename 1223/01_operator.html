@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_자바스크립트 연산자</title>
+    <script>
+        // 1. 산술연산자
+        let a = 10;
+        let b = 5;
+
+        let res = a + b; //15
+        document.write(res + '<br>');
+
+        res = a % b; // 10%5 = 0
+        document.write(res + '<br>');
+
+        // 2. 비교연산자
+        res = a > b; // 10 > 5
+        document.write(res + '<br>');
+
+        res = a < b; // 10 < 5
+        document.write(res + '<br>');
+
+        res = a == b;// 10 == 5
+        document.write(res + '<br>');
+
+        // 3. 대입연산자 a = b, a += b, a -= b
+        res = a = b; //b를 a에 저장, 이 시점에서 a = 5이다.
+        document.write(res + '<br>');
+
+        res = a += b; // a = a + b
+        document.write(res + '<br>');
+
+        // 4. 증감연산자: ++(1씩 증가), --(1씩 감소)
+        res = ++a; // a에 1을 더하고 res에 저장
+        document.write(res + '<br>');
+        // ++기호를 변수 앞에 작성하면, 1을 먼저 더하고 출력.
+        // ++기호를 변수 뒤에 작성하면, 출력하고 나서 1을 더함.
+
+        // 5. 논리연산자: &&(and), ||(or), !(not)
+        //alert((1>2)&&(1<2)); // 모든 경우를 만족할 경우에만 true, 지금은 false
+        //alert((1>2)||(1<2)); // 한 가지 경우만 만족하면 ture
+
+        // 6. 문자열 결합연산자(+)
+        let c, d;
+
+        c = '웹퍼블리셔'; //문자
+        d = '프론트엔드'; //문자
+        e = 20221128; //숫자
+        f = 1; //숫자
+
+        //e, f 변수선언을 먼저 하지 않았지만, 변수처리 됨...
+
+        document.write(c + d + e + '<br>'); // 문자열 결합이 됨
+        document.write(e + f +'<br>'); // 숫자연산 결과가 된다.
+        document.write('<br>' + e + f + '<br>'); // 앞에 문자열이 있으면, 문자결합이 되어버림... 이래서 타입스크립트가...
+
+
+        // 7. 삼항조건 연산자: 조건식? 실행문1:실행문2; 
+        // 예) 1>2?'조건식이 맞습니다.':'조건식이 맞지 않습니다.';
+
+        //프롬프트를 사용하여 사용자가 아이디를 직접 입력하게 한다.
+        //let id = prompt('아이디를 입력하세요');
+        //let pw = prompt('비밀번호를 입력하세요');
+
+        id == 'jeon' && pw == 1234 ? document.write('로그인 성공'):document.write('로그인 실패. 다시 확인하세요');
+        
+
+
+
+    </script>
+</head>
+<body>
+    <h2>01_자바스크립트 연산자</h2>
+    <p>
+        자바스크립트 연산자는 사용자가 조건식을 만들어서 원하는 결과를 출력하고자 할 때 사용하는 기호이다.
+    </p>
+    <ul>
+        <li>
+            산술연산자: +, -, *, /, %(나머지 값)
+        </li>
+        <li>
+            문자열 결합연산자: + (문자 + 숫자, 문자 + 문자일 경우)
+        </li>
+        <li>
+            비교연산자: >, <, >=, <=, ==(값이 같다), ===(값, 형식이 모두 같다)
+        </li>
+        <li>
+            대입연산자: =, +=, -=
+        </li>
+        <li>
+            증감연산자: ++(1씩 증가), --(1씩 감소)
+        </li>
+        <li>
+            논리연산자: &&, ||, !=
+        </li>
+        <li>
+            삼항조건연산자: 조건식?참일때 값; 거짓일때 값
+        </li>
+        <li>
+            타입연산자: typeof(데이터 형식 체크)
+        </li>
+    </ul>
+    
+</body>
+</html>

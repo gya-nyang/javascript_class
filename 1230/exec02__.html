@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예제_mbc 뉴스 게시판</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+
+        ul, li {
+            list-style:none;
+        }
+
+        a {
+            color:#454545;
+            text-decoration:none;
+        }
+
+        article {
+            width:378px;
+            padding:50px;
+            border:1px solid #e1e1e1;
+            height:368px;
+        }
+
+        .title {
+            display:flex;
+            border-bottom:1px solid #e1e1e1;
+            justify-content:space-between;
+            padding-bottom:10px;
+
+            position:relative;
+        }
+
+        h3 {
+            font-size:24px;
+            font-weight:bold;
+        }
+
+        .category {
+            display:flex;
+            margin-top:auto;
+        }
+
+        .category > li {
+            padding:0 8px;
+            /* position:relative; */
+        }
+
+        /* .category > li.on > a {
+            font-weight:bold;
+            color:#4675e9;
+        } */
+
+        /* .category > li::after {
+            content:'|';
+            display:block;
+            position:absolute;
+            top:2px;
+            right:-2px;
+            font-size:10px;
+        } */
+        
+        .category > li:last-child::after {
+            display:none;
+        }
+
+        .category > li > a {
+            display:block;
+            font-size:14px;
+        }
+
+        .content {
+            position:absolute;
+            width:378px;
+            height:368px;
+            padding:16px 0;
+
+            left:0;
+        }
+
+        .content {
+            display:none;
+        }
+
+
+        .content {
+            counter-reset: count;   
+        }
+
+        .content li {
+            position:relative;
+            line-height:48px;
+            padding-left:24px;
+        }
+
+        .content li::before {
+            counter-increment:count;
+            content:counter(count);
+            position:absolute;
+            left:0;
+            font-size:20px;
+            font-weight:bold;
+            color:#4675e9;
+        }
+
+        .content li a {
+            display:block;
+            white-space:nowrap;
+            overflow:hidden;
+            text-overflow:ellipsis;
+            font-size:18px;
+        }
+
+        #btn_01 {
+            background:#4675e9;
+        }
+
+        #btn_02 {
+            background:#46e987;
+        }
+
+        #btn_03 {
+            background:#fa5cda;
+        }
+
+        #btn_04 {
+            background:#e94646;
+        }
+
+        .category > li.on > ul.content {
+            display:block;
+        }
+
+
+        /* 라디오버튼으로 탭메뉴 구현 */
+
+        .tab_con {
+            width:400px;
+            height:250px;
+            border:1px solid #000;
+        }
+
+        input[type=radio]{
+            display:none;
+        }
+
+        label {
+            display:inline-block;
+            width:49.3%;
+            text-align:center;
+            background:#ccc;
+        }
+
+        .c01, .c02 {
+            display:none;
+        }
+
+        input[type=radio]:checked + label {
+            background:#333;
+        }
+
+        #tabmenu01:checked ~ .c01 {
+            display:block;
+        }
+
+        #tabmenu02:checked ~ .c02 {
+            display:block;
+        }
+
+        
+        
+
+    </style>
+</head>
+<body>
+    <article>
+        <div class="title">
+            <h3>많이 본 뉴스</h3>
+            <ul class="category">
+                <li class="on">
+                    <a href="#" title="MBC" id="btn_01" class="btn">MBC</a>
+                    <ul class="content content_01">
+                        <li>
+                            <a href="#" title="'연쇄 살인범' 신상 공개‥31살 이기영">
+                                '연쇄 살인범' 신상 공개‥31살 이기영
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="'제2경인고속 화재' 최초 화재 운전자 입건‥'펑 소리 나더니 불'">
+                                '제2경인고속 화재' 최초 화재 운전자 입건‥"펑 소리 나더니 불"
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="'신생아 4명 사망' 이대목동병원 의료진 무죄 확정">
+                                '신생아 4명 사망' 이대목동병원 의료진 무죄 확정
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="한 총리 '중국발 입국 전후 코로나 검사 의무화'‥단기비자 발급 제한">
+                                한 총리 "중국발 입국 전후 코로나 검사 의무화"‥단기비자 발급 제한
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="[World Now] 영면에 든 펠레‥예전 활약 영상">
+                                [World Now] 영면에 든 펠레‥예전 활약 영상
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="올해 소비자물가 5.1%↑‥외환위기 이후 최고치">
+                                올해 소비자물가 5.1%↑‥외환위기 이후 최고치
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="미국서 한국산 전기차도 '리스 차량'은 보조금">
+                                미국서 한국산 전기차도 '리스 차량'은 보조금
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#" title="포털" id="btn_02" class="btn">포털</a>
+                    <ul class="content content_02">
+                        <li>
+                            <a href="#" title="[단독] 숨진 빌라왕 송 모 씨‥'일감 받아 심부름한 사람이었다'">
+                                [단독] 숨진 빌라왕 송 모 씨‥"일감 받아 심부름한 사람이었다"
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="[단독] 운동선수·유흥업소 '선수'까지 뇌전증 연기">
+                                [단독] 운동선수·유흥업소 '선수'까지 뇌전증 연기
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="잿더미 된 차량 그대로‥이 시각 갈현고가교">
+                                잿더미 된 차량 그대로‥이 시각 갈현고가교
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="'차 두고 뛰쳐나와' 순식간에 번진 불길에 '필사의 탈출'">
+                                "차 두고 뛰쳐나와" 순식간에 번진 불길에 '필사의 탈출'
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="윤 대통령 '우월한 전쟁 준비해야' vs 野 ''안보'는 전쟁 안나게 하는 것'">
+                                윤 대통령 "우월한 전쟁 준비해야" vs 野 "'안보'는 전쟁 안나게 하는 것"
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="'연쇄 살인범' 신상 공개‥31살 이기영">
+                                '연쇄 살인범' 신상 공개‥31살 이기영
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="[단독] 빌라왕 뒤의 빌라왕‥끝은 어디인가?">
+                                [단독] 빌라왕 뒤의 빌라왕‥끝은 어디인가?
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#" title="SNS" id="btn_03" class="btn">SNS</a>
+                    <ul class="content content_03">
+                        <li>
+                            <a href="#" title="황희찬 역전골, 팬들이 뽑은 'KFA 올해의 골'">
+                                황희찬 역전골, 팬들이 뽑은 'KFA 올해의 골'
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="MBC, 가장 즐겨보는 뉴스 채널 1위">
+                                MBC, 가장 즐겨보는 뉴스 채널 1위
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="[World Now] 영면에 든 펠레‥예전 활약 영상">
+                                [World Now] 영면에 든 펠레‥예전 활약 영상
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="'축구 전설'로 남은 펠레‥암투병 끝 별세">
+                                '축구 전설'로 남은 펠레‥암투병 끝 별세
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="경북 구미 고속도로서 연쇄추돌‥2명 사망">
+                                경북 구미 고속도로서 연쇄추돌‥2명 사망
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="[단독] 숨진 빌라왕 송 모 씨‥'일감 받아 심부름한 사람이었다'">
+                                [단독] 숨진 빌라왕 송 모 씨‥"일감 받아 심부름한 사람이었다"
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="[와글와글] '네가 왜 거기서 나와'‥ 대형 쇼핑몰 5층에 '경찰서'?">
+                                [와글와글] "네가 왜 거기서 나와"‥ 대형 쇼핑몰 5층에 '경찰서'?
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="">
+                    <a href="#" title="유튜브" id="btn_04" class="btn">유튜브</a>
+                    <ul class="content content_04">
+                        <li>
+                            <a href="#" title="오늘 새벽 또 무인기 소동‥굉음에 놀라 '깜짝' ">
+                                오늘 새벽 또 무인기 소동‥굉음에 놀라 '깜짝' 
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="[뉴스외전 경제 '쏙'] '1/4 토막' 테슬라의 몰락‥'고양이 밥도 못 맡긴다'">
+                                [뉴스외전 경제 '쏙'] '1/4 토막' 테슬라의 몰락‥"고양이 밥도 못 맡긴다" 
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="'차 두고 뛰쳐나와' 순식간에 번진 불길에 '필사의 탈출' ">
+                                "차 두고 뛰쳐나와" 순식간에 번진 불길에 '필사의 탈출' 
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="[와글와글] '네가 왜 거기서 나와'‥ 대형 쇼핑몰 5층에 '경찰서'? ">
+                                [와글와글] "네가 왜 거기서 나와"‥ 대형 쇼핑몰 5층에 '경찰서'? 
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="'비밀 경찰서' 의심 중식당 '추악한 세력 폭로하겠다' ">
+                                '비밀 경찰서' 의심 중식당 "추악한 세력 폭로하겠다" 
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="'비밀 경찰서' 지목 중식당 '오늘 폭로하겠다' 예고 ">
+                                '비밀 경찰서' 지목 중식당 "오늘 폭로하겠다" 예고 
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" title="'도대체 뭐한 거냐' 대통령 질책에 군 '억울하다' 볼멘소리도 ">
+                                "도대체 뭐한 거냐" 대통령 질책에 군 "억울하다" 볼멘소리도 
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>  
+        </div>
+    </article>
+
+    <h3>라디오버튼으로 탭메뉴</h3>
+
+    
+    <article class="tab_con">
+        <input type="radio" name="news" id="tabmenu01" checked>
+        <label for="tabmenu01">mbc</label>
+
+        <input type="radio" name="news" id="tabmenu02">
+        <label for="tabmenu02">포털</label>
+
+        <ul class="c01">
+            <li>
+                <a href="#" title="오늘 새벽 또 무인기 소동‥굉음에 놀라 '깜짝' ">
+                    오늘 새벽 또 무인기 소동‥굉음에 놀라 '깜짝' 
+                </a>
+            </li>
+            <li>
+                <a href="#" title="[뉴스외전 경제 '쏙'] '1/4 토막' 테슬라의 몰락‥'고양이 밥도 못 맡긴다'">
+                    [뉴스외전 경제 '쏙'] '1/4 토막' 테슬라의 몰락‥"고양이 밥도 못 맡긴다" 
+                </a>
+            </li>
+            <li>
+                <a href="#" title="'차 두고 뛰쳐나와' 순식간에 번진 불길에 '필사의 탈출' ">
+                    "차 두고 뛰쳐나와" 순식간에 번진 불길에 '필사의 탈출' 
+                </a>
+            </li>
+            <li>
+                <a href="#" title="[와글와글] '네가 왜 거기서 나와'‥ 대형 쇼핑몰 5층에 '경찰서'? ">
+                    [와글와글] "네가 왜 거기서 나와"‥ 대형 쇼핑몰 5층에 '경찰서'? 
+                </a>
+            </li>
+            <li>
+                <a href="#" title="'비밀 경찰서' 의심 중식당 '추악한 세력 폭로하겠다' ">
+                    '비밀 경찰서' 의심 중식당 "추악한 세력 폭로하겠다" 
+                </a>
+            </li>
+            <li>
+                <a href="#" title="'비밀 경찰서' 지목 중식당 '오늘 폭로하겠다' 예고 ">
+                    '비밀 경찰서' 지목 중식당 "오늘 폭로하겠다" 예고 
+                </a>
+            </li>
+            <li>
+                <a href="#" title="'도대체 뭐한 거냐' 대통령 질책에 군 '억울하다' 볼멘소리도 ">
+                    "도대체 뭐한 거냐" 대통령 질책에 군 "억울하다" 볼멘소리도 
+                </a>
+            </li>
+        </ul>
+
+
+        
+        <ul class="c02">
+            <li>
+                <a href="#" title="황희찬 역전골, 팬들이 뽑은 'KFA 올해의 골'">
+                    황희찬 역전골, 팬들이 뽑은 'KFA 올해의 골'
+                </a>
+            </li>
+            <li>
+                <a href="#" title="MBC, 가장 즐겨보는 뉴스 채널 1위">
+                    MBC, 가장 즐겨보는 뉴스 채널 1위
+                </a>
+            </li>
+            <li>
+                <a href="#" title="[World Now] 영면에 든 펠레‥예전 활약 영상">
+                    [World Now] 영면에 든 펠레‥예전 활약 영상
+                </a>
+            </li>
+            <li>
+                <a href="#" title="'축구 전설'로 남은 펠레‥암투병 끝 별세">
+                    '축구 전설'로 남은 펠레‥암투병 끝 별세
+                </a>
+            </li>
+            <li>
+                <a href="#" title="경북 구미 고속도로서 연쇄추돌‥2명 사망">
+                    경북 구미 고속도로서 연쇄추돌‥2명 사망
+                </a>
+            </li>
+            <li>
+                <a href="#" title="[단독] 숨진 빌라왕 송 모 씨‥'일감 받아 심부름한 사람이었다'">
+                    [단독] 숨진 빌라왕 송 모 씨‥"일감 받아 심부름한 사람이었다"
+                </a>
+            </li>
+            <li>
+                <a href="#" title="[와글와글] '네가 왜 거기서 나와'‥ 대형 쇼핑몰 5층에 '경찰서'?">
+                    [와글와글] "네가 왜 거기서 나와"‥ 대형 쇼핑몰 5층에 '경찰서'?
+                </a>
+            </li>
+        </ul>
+
+    </article>
+
+
+
+    <script>
+        // 버튼 목록 변수선언
+        const btnList = document.querySelectorAll('.category > li')
+
+        // 2. for문
+        for(let i = 0; i < btnList.length; i++){
+            btnList[i].querySelector('.btn').addEventListener('click', function(e){
+                // alert('클릭테스트');
+                e.preventDefault();
+
+                for(let j = 0; j < btnList.length; j++){
+                    btnList[j].classList.remove('on');
+                }
+                this.parentNode.classList.add('on');
+            });
+        }
+    </script>
+</body>
+</html>

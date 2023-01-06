@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 문서객체모델_속성값을 활용한 상품 미리보기 콘텐츠</title>
+
+    <style>
+
+        body {
+            background:#f9f9f9;
+        }
+
+        * {
+            margin:0;
+            padding:0;
+            color:#292929;
+        }
+
+        ul, li {
+            list-style:none;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        img {
+            /* border:1px solid #e1e1e1; */
+            border-radius:5px;
+        }
+
+        .product {
+            display:flex;
+
+            width:1000px;
+            padding:20px;
+            margin:20px auto;
+            background:#fff;
+            box-sizing:border-box;
+        }
+
+        .photo {
+            width:480px;
+        }
+
+        #big_img {
+            width:100%;
+        }
+
+        #big_img + ul {
+            display:flex;
+            padding:10px;
+        }
+
+        #big_img + ul li {
+            padding:5px;
+            box-sizing:border-box;
+        }
+
+        
+        
+        li img {
+            display:block;
+            width:100%;
+            box-sizing:border-box;
+        }
+
+        li:first-child img {
+            border:1px solid #4d2675;
+        }
+
+        .desc {
+            padding:10px 10px 10px 40px;
+        }
+
+        .desc h3 {
+            display:flex;
+            flex-wrap: wrap;
+            font-weight:500;
+            letter-spacing:-0.05rem;
+        } 
+
+        .desc h3 span {
+            width:50%;
+            font-size:14px;
+        }
+
+        .desc h3 span:first-of-type {
+            color:#d5565d;
+        }
+
+        .desc h3 span:nth-of-type(2) {
+            color:#999;
+            text-align:right;
+        }
+
+        .desc h3 p {
+            width:100%;
+            margin-top:20px;
+            border-top:1px solid #e1e1e1;
+            padding:16px 0 30px;
+            font-size:20px;
+            font-weight:600;
+        }
+
+        .desc h3 + p {
+            position:relative;
+            font-size:34px;
+            font-weight:600;
+            padding-bottom:52px;
+            border-bottom:1px solid #e1e1e1;
+        }
+
+        .desc h3 + p:after {
+            content:'168,000원~';
+            display:block;
+            position:absolute;
+            top:36px;
+            left:60px;
+            font-size:20px;
+            font-weight:500;
+            color:#999;
+            text-decoration: line-through;
+        }
+
+        .desc h3 + p a {
+            display:inline-block;
+            padding:4px 8px;
+            border:1px solid #767678;
+            border-radius:3px;
+            font-size:12px;
+            /* vertical-align:text-bottom;
+            margin-bottom:6px; */
+            
+            transform:translateY(-6px);
+        }
+
+        span.red {
+            color:#dc1019;
+        }
+
+        span.small {
+            font-size:20px;
+        }
+
+        .desc > p:last-of-type {
+            margin-top:46px;
+            display:flex;
+            padding:15px 0;
+            background:#f5f5f5;
+            font-size:12px;
+        }
+        
+        .desc > p:last-of-type a {
+            display:block;
+            width:50%;
+            padding:0 15px;
+            font-weight:bold;
+            letter-spacing:-0.05rem;
+            color:#666;
+        }
+
+        .desc > p:last-of-type a:first-child {
+            position:relative;
+        }
+        .desc > p:last-of-type a:first-child::after {
+            content:'';
+            display:block;
+
+            position:absolute;
+            top:-2px;
+            right:0;
+
+            width:1px;
+            height:20px;
+            background:#e1e1e1;
+        }
+
+        
+
+
+    </style>
+</head>
+<body>
+    <h2>자바스크립트 문서객체모델_속성값을 활용한 상품 미리보기 콘텐츠</h2>
+
+    <p>이미지 5장을 사용하여 썸네일 이미지를 클릭시 큰 사진이 보이게 하기</p>
+
+    <section class="product">
+        <article class="photo">
+            <img src="./images2/photo01.jpg" alt="미리보기" id="big_img">
+            <!-- 썸네일 클릭시 해당 속성 src값을 변수에 담아서 출력해보기 -->
+            <ul>
+                <li>
+                    <img src="./images2/photo01.jpg" alt="썸네일">
+                </li>
+                <li>
+                    <img src="./images2/photo02.jpg" alt="썸네일">
+                </li>
+                <li>
+                    <img src="./images2/photo03.jpg" alt="썸네일">
+                </li>
+                <li>
+                    <img src="./images2/photo04.jpg" alt="썸네일">
+                </li>
+                <li>
+                    <img src="./images2/photo05.jpg" alt="썸네일">
+                </li>
+            </ul>
+        </article>
+
+        <article class="desc">
+            <h3>
+                <span>오늘마감</span>
+                <span>59개 구매</span>
+                <p>
+                    [최대 40%쿠폰] 머렐 헤비다운 외 스포츠 특가
+                </p>
+            </h3>
+            <p>
+                <span class="red">10</span><span class="small red">%</span> 151,200<span class="small">원</span>~ <a href="#" title="혜택보기">혜택보기</a>
+            </p>
+            <p>
+                <a href="#" title="적립금">구매 전 적립금 5,000원 받기</a>
+                <a href="#" title="무이자">카드 무이자 혜택보기(최대 6개월)</a>
+            </p>
+        </article>
+    </section>
+
+    <script>
+        // 큰 사진을 변수에 저장
+        let big_img = document.querySelector('#big_img');
+        // 작은 사진들은 변수에 저장
+        let thumb = document.querySelectorAll('#big_img + ul li img');
+
+        // 반복문으로 목록 안에 이미지를 개별적으로 선택하여 클릭이벤트를 만든다.
+        // for(i in thumb){
+        // for(let i = 0; i < thumb.length; i++){
+        //     // 변수 i의 초기값 = 0, 작은 사진들 개수만큼 반복실행, 하나씩 다음 사진으로 가면서
+        //     thumb[i].addEventListener('click', function(){
+        //         let src = this.getAttribute('src'); // 선택한 이미지의 src값을 변수에 저장
+        //         console.log(src);
+
+        //         for(let j = 0; j < thumb.length; j++){
+        //             thumb[j].style.border = 'none';
+        //         }
+
+        //         this.style.border = '1px solid #4d2675';
+
+        //         big_img.setAttribute('src', src)
+        //     });
+        // };
+
+        thumb.forEach(function(e){
+            e.addEventListener('click', function(){
+                let src = this.getAttribute('src'); // 선택한 이미지의 src값을 변수에 저장
+                console.log(src);
+
+                thumb.forEach(function(a){
+                    a.style.border = 'none';
+                });
+
+                this.style.border = '1px solid #4d2675';
+                big_img.setAttribute('src', src)
+            });
+        });
+
+
+
+
+        
+
+    </script>
+    
+</body>
+</html>

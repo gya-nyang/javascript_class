@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수를 활용하여 배너 구현하기</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <style>
+        .banner {
+            position:relative;
+            width:480px;
+            height:640px;
+            border:1px solid #e1e1e1;
+        }
+
+        .banner * {
+            margin:0;
+            padding:0;
+        }
+
+
+        .banner img {
+            width:100%;
+            height:100%;
+            object-fit:cover;
+        }
+
+        i.fas {
+            position:absolute;
+            font-size:30px;
+            color:#fff;
+            background:rgba(0,0,0,0.5);
+            padding:10px;
+            top:50%;
+            transform:translateY(-50%);
+        }
+
+        i.fa-angle-left {
+            left:0;
+        }
+
+        i.fa-angle-right {
+            right:0;
+        }
+
+        #page {
+            position:absolute;
+            right:0;
+            bottom:0;
+            background:rgba(0,0,0,0.5);
+            padding:0 10px;
+            color:#fff;
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <h2>함수를 활용하여 배너 구현하기</h2>
+    <dl>
+        <dt>
+            구현순서
+        </dt>
+        <dd>
+            banner영역을 만들고 이미지 태그요소를 사용하여 첫번째 이미지를 삽입한다.
+        </dd>
+        <dd>
+            아이콘 폰트를 사용하여 좌, 우 끝에 방향표시 버튼을 삽입한다.
+        </dd>
+        <dd>
+            자바스크립트에서 nextimg, previmg함수를 각각 작성하여 총 이미지 개수 4장을 초과하지 않게 조건식을 작성한다.
+        </dd>
+        <dd>
+            좌, 우 버튼에 이벤트를 사용하여 각각 클릭하면 해당 함수가 호출되게 하고, 이미지, 해당 번호가 표시되게 한다. 
+        </dd>
+    </dl>
+
+    <div class="banner">
+        <img src="./images/img_01.jpg" alt="banner_01" id="banner">
+
+        <i class="fas fa-angle-left" onclick="previmg();"></i>
+        <i class="fas fa-angle-right" onclick="nextimg();"></i>
+        <span id="page">&nbsp;</span>
+    </div>
+
+    <script>
+        // 변수선언
+
+        let n = 1;
+        document.getElementById('page').innerHTML= n + "/4";
+
+        function nextimg(){ // 숫자가 증가하도록 4이후로는 다시 1로
+            // alert('다음이미지');
+            if(n == 4){
+                n = 1;
+            }else{
+                n++;
+            }
+
+            console.log(n);
+            document.getElementById('banner').src="./images/img_0" + n + ".jpg";
+            document.getElementById('page').innerHTML= n + "/4";
+        }
+
+        function previmg(){ // 숫자가 감소하도록
+            // alert('이전이미지');
+            if(n == 1){
+                n = 4;
+            }else{
+                n--;
+            }
+
+            console.log(n);
+            document.getElementById('banner').src="./images/img_0" + n + ".jpg";
+            document.getElementById('page').innerHTML= n + "/4";
+        }
+
+        // 시각객체를 사용해서 매 초마다 반복실행하기
+        // setInterval(함수명, 시간)
+        let Timer = setInterval(nextimg, 3000);
+    </script>
+</body>
+</html>

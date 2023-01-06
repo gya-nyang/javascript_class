@@ -1,0 +1,17 @@
+* defer 
+javascript 로딩에 활용되는 키워드
+일반적으로 외부 문서를 불러올 때에는 위에서부터 순차적으로 불러온다. 
+javascript의 경우, html이 먼저 로딩된 다음에 로드되어야 오류가 나지 않는다. 
+예) html 안에 있는 요소를 컨트롤 할 때.
+
+script를 불러올 때, 태그에 'defer' 속성을 추가하면, html이 먼저 로드된 다음에 실행된다.
+스크립트를 꼭 아래에서 불러올 필요가 없다.
+위에 놓고 defer를 사용하면 문제 없음.
+
+
+
+html 랜더링을 자바스크립트 다운돠 동시에 하며, 
+html 로딩 후 로드...???
+
+
+https://github.com/gya-nyang/javascript_class.git

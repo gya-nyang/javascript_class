@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팝업(popup)</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+
+        div {
+            width:360px;
+            height:365px;
+        }
+
+        img {
+            display:block;
+        }
+        
+        input[type=button] {
+            display:block;
+            width:100%;
+            color:#fff;
+            line-height:40px;
+            border:none;
+            background:#292929;
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <a href="#" title="광고이미지">
+            <img src="./images/banner.jpg" alt="광고이미지">
+        </a>
+        <p>
+            <input type="button" value="닫기" onclick="self.close();">
+            <!-- window.close(); or self.close(); -->
+        </p>
+    </div>
+</body>
+</html>

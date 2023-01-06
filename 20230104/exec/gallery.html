@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네이버 영화 갤러리</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link rel="stylesheet" href="./css/movie_gallery.css" type="text/css">
+    <script src="./script/movie_gallery.js" defer></script>
+</head>
+<body>
+    <h2>네이버 영화 갤러리(립반윙클의 신부...)</h2>
+    <section class="gallery">
+        <article>
+            <ul class="lnb">
+                <li>
+                    <img src="./images/movie_image_01.jpg" alt="썸네일">
+                </li>
+                <li>
+                    <img src="./images/movie_image_02.jpg" alt="썸네일">
+                </li>
+                <li>
+                    <img src="./images/movie_image_03.jpg" alt="썸네일">
+                </li>
+                <li>
+                    <img src="./images/movie_image_04.jpg" alt="썸네일">
+                </li>
+                <li>
+                    <img src="./images/movie_image_05.jpg" alt="썸네일">
+                </li>
+                <li>
+                    <img src="./images/movie_image_06.jpg" alt="썸네일">
+                </li>
+                <li>
+                    <img src="./images/movie_image_07.jpg" alt="썸네일">
+                </li>
+                <li>
+                    <img src="./images/movie_image_08.jpg" alt="썸네일">
+                </li>
+            </ul>
+        </article>
+        <article id="big_img">
+            <img src="./images/movie_image_01.jpg" alt="" id="photo">
+            <i class="fas fa-angle-left"></i>
+            <i class="fas fa-angle-right"></i>
+            <span id="page"></span>
+        </article>
+    </section>
+
+    
+
+    <pre>
+        * forEach 함수는 배열에서만 사용 가능한 메서드이다.
+        * 문법
+        객체.forEach((매개변수, index)){
+            각각 실행할 함수 내용을 적는다.
+        }
+    </pre>
+
+
+    <ul>
+        <li>
+            1. 변수를 만들어서 1로 초기값을 넣어준다.
+        </li>
+        <li>
+            2. #page요소에 '1/16'이 출력되도록 한다.
+        </li>
+        <li>
+            3. 갤러리의 썸네일 이미지를 클릭시 해당 이미지 번호를 구한다.
+        </li>
+    </ul>
+</body>
+</html>

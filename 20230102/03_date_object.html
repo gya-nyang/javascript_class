@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>03_내장객체(object)_Date(날짜와 시간)</title>
+
+    <script>
+        //날짜객체 선언
+        let today = new Date();
+
+        //날짜와 시간을 출력
+        document.write(today + '<br>');
+
+        document.write(today.getFullYear() + '년<br>');
+        document.write(today.getMonth() + 1 + '월<br>');
+        document.write(today.getDate() + '일<br>');
+        document.write(today.getDay() + '요일<br>');
+
+        let yoil = today.getDay();
+        
+        document.write('오늘은 ');
+        switch (yoil){
+            case 0:document.write('일');
+            break;
+            case 1:document.write('월');
+            break;
+            case 2:document.write('화');
+            break;
+            case 3:document.write('수');
+            break;
+            case 4:document.write('목');
+            break;
+            case 5:document.write('금');
+            break;
+            default: document.write('토')
+        };
+        document.write('요일 입니다.<br>');
+
+        let yoil2 = ['일', '월', '화', '수', '목', '금', '토'];
+
+        document.write(`오늘은 ${yoil2[yoil]}요일 입니다.`);
+
+    </script>
+
+
+</head>
+<body>
+    <h2>03_내장객체(object)_Date(날짜와 시간)</h2>
+
+    <p>
+        Date객체는 현재 또는 특정 날짜와 시간에 대한 정보를 제공하는 객체이다.
+    </p>
+    <p>
+        작성법) let 변수명 = new Date();
+    </p>
+
+    <h3>날짜와 시간 정보를 제공하는 속성</h3>
+    <p>
+        getFullYear(): 날짜 정보에서 연도에 대단 정보를 제공
+    </p>
+    <p>
+        getMonth(): 날짜 정보에서 월(0~11)에 대한 정보를 제공 
+    </p>
+    <p>
+        getDate(): 날짜 정보에서 일에 대한 정보
+    </p>
+    <p>
+        getDay(): 날짜 정보에서 요일에 대단 정보를 제공
+        <br>
+        (0 - 일, 1 - 월, 2 - 화, 3 - 수, 4- 목, 5 - 금, 6 - 토, 7 - 일)
+    </p>
+    <p>
+        getHour: 날짜 정보에서 시간(0~23)에 대단 정보를 제공
+    </p>
+    <p>
+        getMinutes(): 날짜 정보에서 분에 대단 정보를 제공
+    </p>
+    <p>
+        getSeconds():날짜 정보에서 초(0 ~ 59)에 대단 정보를 제공
+    </p>
+    <p>
+        getMilliseconds(): 날짜 정보에서 밀리초(1/1000)에 대단 정보를 제공
+    </p>
+
+    <h3>실시간 디지털 시계 표시하기</h3>
+    <p>
+        color:blue;
+        font-size:30px;
+        background:yellow;
+    </p>
+    <div id="clock"></div>
+    
+    <script>
+        let today2 = new Date();
+        let m = today2.getMonth() + 1;
+        let d = today2.getDate();
+        let yoilTxt = ['일', '월', '화', '수', '목', '금', '토'];
+
+        // document.write(today2.getMonth() + 1 + '.');
+        // document.write(today2.getDate());
+        // document.write('(' + yoilTxt[yoilNum] + ')<br>');
+
+        
+        // 1 ~ 9까지 m 앞에 '0' 문자 붙이기
+        // 1 ~ 9까지 d 앞에 '0'문자 붙이기
+        
+        if(m < 10){
+            m = '0' + m;
+        }else{
+            m = m;
+        }
+        
+        if(d < 10){
+            d = '0' + d;
+        }else{
+            d = d;
+        }
+
+        document.write(`${m}.${d}(${yoilTxt[today2.getDay()]})<br><br>`);
+
+
+        function clock(){
+
+            let today1 = new Date();
+
+            let h1 = today1.getHours();
+            // document.write(h1);
+
+            let min1 = today1.getMinutes();
+            // document.write(min1);
+
+            let s1 = today1.getSeconds();
+            // document.write(s1);
+
+            //시, 분, 초 앞에 '0' 문자열 붙이기
+
+            h1 = checkTime(h1);
+            min1 = checkTime(min1);
+            s1 = checkTime(s1);
+
+            document.getElementById('clock').innerHTML = `${h1}:${min1}:${s1}`;
+            let t = setTimeout(clock, 1000); // 시간객체를 사용하여 매 0.5초마다 반복함수호출 신행
+        }
+
+        // 시, 분, 초가 0 ~9일때 앞에 문자열 '0'을 붙이는 함수
+        function checkTime(i){
+            if(i<10){
+                i = '0' + i;
+            }
+            return i; // 숫자가 2자리면 그대로 진행
+        }
+
+        // 시간함수 실행
+        clock();
+
+    </script>
+    
+
+    <h3>날짜객체를 활용한 오늘의 추천요리 표시하기</h3>
+
+    <p>
+        현재 요일번호를 구하여 배열번호에 맞는 이미지 파일명을 대입라여 이미지를 출력한다.
+    </p>
+    <div id="food"></div>
+
+    <script>
+        // 요일을 구한다.
+        let today3 = new Date();
+        today3 = today3.getDay();
+        console.log(today3); // 1이면 월요일
+
+        // 배열 변수를 만들고 요일데이터를 작성
+        let yoil3 = ['일', '월', '화', '수', '목', '금', '토'];
+        let foodNum = today3 + 1; // 음식사진은 1번부터 시작, 7번까지 나오므로 인덱스 번호에서 1을 더했다.
+        
+        // 해당 food 박스에 아래와 같은 내용을 출력
+        document.getElementById('food').innerHTML =`오늘 ${yoil3[today3]}요일의 추천요리는 <br> <img src='./img2/food${foodNum}.jpg' alt='추천요리'>`;
+    </script>
+
+    <p>
+        food 박스에 innerHTML 메서드로 내용을 입력한다.
+    </p>
+    <p>
+        yoil3[today3]: 요일번호에 맞는 요일명을 배열데이터에서 출력
+    </p>
+    <p>
+        img src='./img2/food' + today3 + '.jpg': 위에서 구한 요일번호를 파일명 food에 대입하여 이미지가 변경되도록 한다.
+    </p>
+</body>
+</html>

@@ -1,0 +1,81 @@
+객체
+
+브라우저 객체: 웹브라우저의 창에서 다양한 동작이나 속성을 설정하고자 할 때 사용
+
+Window객체: 현재 실행되고 있는 브라우저창
+
+1) window객체의 속성(property)
+- document
+- frameElement
+- innerHeight
+- innerWidth
+- location
+- name
+- screenX
+- screenY
+- scrollX, scrollY
+- sessionStorge
+2) window객체의 메서드
+- alert(); 윈도우창에서 경고창(메세지)를 띄울 때 사용
+- blur(); 현재 창에서 포커스를 제거
+- close(); 현재 창을 닫기
+- confirm(); 확인, 취소 버튼이 있는 확인창을 표시함
+- focus(); 현재 창에 포커스를 부여합니다.
+- moveBy(); 현재 창을 지정한 크기만큼 이동
+- moveTo(); 현재 창을 지정한 좌표로 이동
+- open(); 새로운 창을 연다
+- prompt(); 사용자가 입력 가능한 프롬프트창을 연다
+- resizeTo(); 동적으로 브라우저의 창의 크기를 조정
+- scroll(); 문서의 특정 위치로 스크롤합니다.
+- sizeToContent(); 내용에 맞게 창의 크기를 조절
+- stop(); 로딩 중지
+
+--------------------------------------------------------
+* 모달, 팝업레이어
+브라우저 팝업차단기능으로 팝업을 포지션으로 배치한다.
+
+** 화면 가운데 정렬
+1) position:absolute; 
+   left:50%; top:50%;
+   transform:translate(-50%, -50%);
+
+2) display:flex;
+   justify-content:center;
+   align-items:center;
+
+--------------------------------------------------------
+
+문서객체DOM(Document Object Model)
+- 웹브라우저가 html을 인식하는 방법
+- 웹문서 안에 있는 요소(객체)들의 집합
+- 자바스크립트를 이용하여 웹문서에 접근하고, 제어할 수 있도록 객체를 사용해 웹문서를 체계적으로 정리하는 방법
+
+1. DOM tree 구조의 이해
+
+DOM은 노드(node)들의 집합이며, 요소노드, 속성노드, 텍스트노드로 구성되어 있다. 
+노드는 DOM의 구조를 이루는 최소단위이며, 이 노드들의 집합체가 DOM이라고 할 수 있다.
+
+DOM을 구성하는 기본원칙
+- 모든 html태그는 요소(element)노드이다.
+- html태그에서 사용하는 텍스트 내용은 자식 노드인 텍스트(text) 노드이다.
+- html태그에 있는 속성은 자식 노드인 속성노드이다.
+- 주석은 주석(comment)노드이다.
+
+2. document객체의 속성
+- domain: 현재 문서가 있는 서버의 도메인 이름
+- title: 현재 문서의 제목
+- bgColor: 문서의 배경색
+- fgColor: 문서의 글자색
+- linkColor: 문서의 링크 글자색
+- alinkCOlor: 링크를 클릭했을 때 글자색
+- vlinkColor: 방문했던 링크의 글자색
+- anchors: 문서의 anchor들의 배열
+- cookie: 쿠키에 대한 정보
+- url: 문서의 url 주소
+
+3. document객체의 메소드
+- open(): 데이터를 보낸 준비
+- close(): 문서에 데이터 출력을 마무리함
+- clear(): 브라우저에서 문서를 지움
+- write(): 문서에 데이터를 출력함
+- writeln() 문서에 줄(line)바꾸기를 포함하여 데이터를 출력함.
