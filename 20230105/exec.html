@@ -32,7 +32,7 @@
             left:0;
             /* left:-100%; */
             /* left:0; */
-            width:300%;
+            width:500%;
             display:flex;
         }
 
@@ -86,44 +86,101 @@
     </article>
 
     <script>
-        let slider = document.querySelector('ul');
-        let slide_img = document.querySelectorAll('li');
-        let slide_img_w = document.querySelector('li').clientWidth;
+        // let slider = document.querySelector('ul');
+        // let slide_img = document.querySelectorAll('li');
 
-        let li = document.querySelector('li');
+        // let l_btn = document.querySelector('a:nth-of-type(1)');
+        // let r_btn = document.querySelector('a:nth-of-type(2)');
 
-        console.log(slide_img_w);
-        console.log(slide_img.length);
-        console.log(li);
+        // let slide_length = slide_img.length;
 
-        let l_btn = document.querySelector('a:nth-of-type(1)');
-        let r_btn = document.querySelector('a:nth-of-type(2)');
+        // let slide_img_w = 100;
+        // const m = 0;
+        // const s_con = 1;
 
-        let n = 1;
-        function slide(a){
-            slider.style.left = `${slide_img_w * -n}px`;
-            n = a;
-        };
+        // let n = 0;
 
-        l_btn.addEventListener('click', function(){
-            console.log('왼쪽버튼');
-            if(n == 1){
-                slide(2);
-            }else{
-                slide(n - 1);
-            }
-            
-        }); 
+        // slider.style.width = `${slide_img_w * slide_length -n}%`;
 
-        r_btn.addEventListener('click', function(){
-            console.log('오른쪽버튼');
-            if(n == slide_img.length - 1){
-                slide(0);
-            }else{
-                slide(n + 1);
-            };
-            // console.log(slider.style.left);
-        }); 
+
+        // function slide(a){
+        //     slider.style.left = `${slide_img_w * slide_length -n}%`;
+        //     n = a;
+        // };
+
+        // l_btn.addEventListener('click', function(){
+        //     console.log('왼쪽버튼');
+        //     if(n > 0){
+        //         slide(n-1);
+        //     }else{
+        //         slide(slide_length - s_con);
+        //     };
+        // }); 
+
+        // r_btn.addEventListener('click', function(){
+        //     console.log('오른쪽버튼');
+        //     if(n < slide_length - s_con){
+        //         slide(n+1);
+        //     }else{
+        //         slide(0);
+        //     };
+        // }); 
+
+
+
+        //변수선언
+    const slide = document.querySelector('ul');
+    const slide_img = document.querySelectorAll('ul li');
+    const l_btn = document.querySelector('a:nth-of-type(1)');
+    const r_btn = document.querySelector('a:nth-of-type(2)');
+
+    const img_n = slide_img.length;  //목록개수
+    console.log(img_n);
+    const img_w = 100; //이미지 한장 너비
+    const m = 0; //마진값
+    const s_con = 1; //보여줄 개수
+
+    let count = 0;
+
+    //감싸는 부모요소의 너비를 구하기
+    slide.style.width = (img_w+m)*img_n - m + '%';
+    //1620=(300+30)*5-30px
+
+    //함수작성
+    function mslide(n){
+      slide.style.left = (img_w+m)* -n  + '%'; //
+      count = n;
+      console.log(slide.style.left); //-330, -660..
+      console.log(count);
+    }
+
+    //3초마다 mslide를 호출하여 자동으로 움직이게 함.
+    var Timer = setInterval(function(){
+      if(count < img_n-s_con){
+        mslide(count+1);
+      }else{
+        mslide(0);
+      }
+    },3000);
+
+
+    //이전버튼 클릭시 해당 방향으로 움직이게
+    l_btn.addEventListener('click', function(){
+      if(count > 0){
+        mslide(count-1);
+      }else{
+        mslide(img_n - s_con);
+      }
+    });
+
+    //다음버튼
+    r_btn.addEventListener('click', function(){
+      if(count < img_n-s_con){
+        mslide(count+1);
+      }else{
+        mslide(0);
+      }
+    });
 
 
     </script>
