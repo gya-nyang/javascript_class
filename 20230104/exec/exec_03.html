@@ -26,13 +26,17 @@
             flex-wrap:wrap;
         }
 
-        i.fas {
-            display:block;
+        article > p {
+            display:flex;
             width:30px;
             background:#f1f1f1;
+        }
+
+        i.fas {
+            margin:auto;
+            display:block;
             text-align:center;
             cursor:pointer;
-            line-height:60px;
         }
 
         .thumb {
@@ -85,7 +89,7 @@
 
 
         <article>
-            <i class="fas fa-angle-left"></i>
+            <p><i class="fas fa-angle-left"></i></p>
             <ul class="thumb">
                 <li class="on">
                     <img src="./images/movie_image_01.jpg" alt="썸네일 이미지">
@@ -112,7 +116,7 @@
                     <img src="./images/movie_image_08.jpg" alt="썸네일 이미지">
                 </li>
             </ul>
-            <i class="fas fa-angle-right"></i>
+            <p><i class="fas fa-angle-right"></i></p>
 
             <div id="img_box">
                 <img src="./images/movie_image_01.jpg" alt="스틸컷">
@@ -160,6 +164,10 @@
             }
             img_num_box.innerText = `${img_num}/${thumb.length}건`;
             img_box.src = img_box.src.replace(img_box.src, thumb[img_num - 1].children[0].src);
+            for(let b = 0; b < thumb.length; b++){
+                thumb[b].classList.remove('on');
+            }
+            thumb[img_num-1].classList.add('on');
         });
 
         r_btn.addEventListener('click',function(){
@@ -170,6 +178,10 @@
             }
             img_num_box.innerText = `${img_num}/${thumb.length}건`;
             img_box.src = img_box.src.replace(img_box.src, thumb[img_num - 1].children[0].src);
+            for(let b = 0; b < thumb.length; b++){
+                thumb[b].classList.remove('on');
+            }
+            thumb[img_num-1].classList.add('on');
         });
     </script>
 </body>
