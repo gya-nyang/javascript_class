@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습예제</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+
+        ul>li {
+            list-style:none;
+        }
+
+        section {
+            position:relative;
+        }
+
+        .background img {
+            width:100%;
+        }
+
+        .typo {
+            position: absolute;
+            left:calc(50% - 30vw);
+            top:12%;
+            width:13%;
+        }
+
+        .object > li {
+            position: absolute;
+        }
+
+        .object > li:nth-child(1) {
+            right:41%;
+            top:6%;
+        }
+        .object > li:nth-child(2) {
+            right:47.5%;
+            top:30%;
+        }
+        .object > li:nth-child(3) {
+            right:41%;
+            top:38%;
+        }
+
+        .bev1,
+        .bev2,
+        .bev3 {
+            position:relative;
+            display:none;
+        }
+
+        .bev1.on,
+        .bev2.on,
+        .bev3.on {
+            display:block;
+        }
+
+        .bev1 li,
+        .bev2 li,
+        .bev3 li {
+            position:absolute;
+        }
+
+        .bev1 li:last-child {
+            top:-20px;
+            left:-240px;
+        }
+
+        .bev2 li:last-child {
+            top:-30px;
+            left:-180px;
+        }
+
+        .bev3 li:last-child {
+            top:-100px;
+            right:-340px;
+        }
+        
+
+
+    </style>
+</head>
+<body>
+    <header></header>
+    <main>
+        <section>
+            <div class="background">
+                <img src="./images/bev_bg.jpg" alt="">
+                <div class="typo">
+                    <img src="./images/m_18_emblem.png" alt="">
+                </div>
+            </div>
+            <ul class="object">
+                <li>
+                    <ul class="bev1">
+                        <li>
+                            <img src="./images/bev1_cup.png" alt="">
+                        </li>
+                        <li>
+                            <img src="./images/bev1_txt.png" alt="">
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="bev2">
+                        <li>
+                            <img src="./images/bev2_cup.png" alt="">
+                        </li>
+                        <li>
+                            <img src="./images/bev2_txt.png" alt="">
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <ul class="bev3">
+                        <li>
+                            <img src="./images/bev3_cup.png" alt="">
+                        </li>
+                        <li>
+                            <img src="./images/bev3_txt.png" alt="">
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+    </main>
+    <footer></footer>
+    <script>
+        $(document).ready(function(){
+
+            let show_delay = 600;
+
+            for(let i = 0; i < $('.object > li').length; i++){
+                $('.object > li ').eq(i).children('ul').delay(show_delay*(i+1)).fadeIn(400);
+            }
+        });
+    </script>
+</body>
+</html>
