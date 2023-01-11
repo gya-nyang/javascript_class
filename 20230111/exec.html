@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- jquery cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <!-- jquery ui -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <style>
+
+        * {
+            margin:0;
+            padding:0;
+        }
+
+        body {
+            display:flex;
+            height:100vh;
+        }
+
+        article {
+            position:relative;
+            width:600px;
+            height:318px;
+            border:20px solid #292929;
+            border-radius:10px;
+            margin:auto;
+            box-sizing: border-box;
+            overflow:hidden;
+        }
+
+        p {
+            position:absolute;
+            z-index:-10;
+        }
+
+        img {
+            display:block;
+        }
+
+        .txt {
+            top:80px;
+            /* left:60px; */
+            left:-200px;
+        }
+
+        .jobs {
+            right:0;
+            /* bottom:0px; */
+            bottom:-360px;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $('.txt').animate({'left':'60px'}, 600);
+            $('.jobs').delay(400).animate({'bottom':'0'}, 600);
+        });
+    </script>
+</head>
+<body>
+    <article>
+        <p class="txt">
+            <img src="./images/jobs_text.gif" alt="">
+        </p>
+        <p class="jobs">
+            <img src="./images/jobs.png" alt="">
+        </p>
+    </article>
+</body>
+</html>

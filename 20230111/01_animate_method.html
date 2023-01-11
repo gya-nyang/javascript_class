@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리_01_animate메서드</title>
+    <!-- jquery cdn -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <!-- jquery ui -->
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+
+
+    <!-- <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/themes/smoothness/jquery-ui.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script> -->
+
+
+    <style>
+        .circle {
+            /* 현위치가 기준 */
+            position:relative;
+            /* top:0;
+            left:0; */
+
+            width:100px;
+            height:100px;
+            border-radius:50%;
+            background:#ff8040fa;
+
+            text-align: center;
+            line-height:100px;
+            color:#fff;
+        }
+
+        #kakao {
+            position:relative;
+        }
+
+        .box {
+            position:relative;
+            width:60px;
+            height:60px;
+            margin-bottom:10px;
+            background:#00a2ff;
+        }
+
+
+        .bar01,
+        .bar02,
+        .bar03 {
+            position:relative;
+            left:0;
+
+            width:20px;
+            height:50px;
+            margin-bottom:10px;
+
+            background:#b583ff;
+        }
+
+        .skill_status {
+            width:500px;
+            padding:10px 120px;
+            background:#f5f5f5;
+            border-radius: 5px;
+        }
+
+        .skill_status li {
+            position:relative;
+            list-style:none;
+            width:100%;
+            height:10px;
+            background:#fff;
+            margin:20px 0;
+            border-radius: 5px;
+            color:#292929;
+        }
+
+        .skill_status li:nth-child(1)::before {
+            content:'HTML';
+            position:absolute;
+            right:calc(100% + 10px);
+            top:-3px;
+            font-size:12px;
+        }
+
+        .skill_status li:nth-child(1)::after {
+            content:'80%';
+            position:absolute;
+            left:calc(100% + 10px);
+            top:-4px;
+            font-size:12px;
+        }
+
+        .skill_status li:nth-child(2)::before {
+            content:'CSS';
+            position:absolute;
+            right:calc(100% + 10px);
+            top:-3px;
+            font-size:12px;
+        }
+
+        .skill_status li:nth-child(2)::after {
+            content:'60%';
+            position:absolute;
+            left:calc(100% + 10px);
+            top:-4px;
+            font-size:12px;
+        }
+
+        .skill_status li:nth-child(3)::before {
+            content:'JACASCRIPT';
+            position:absolute;
+            right:calc(100% + 10px);
+            top:-3px;
+            font-size:12px;
+        }
+
+        .skill_status li:nth-child(3)::after {
+            content:'20%';
+            position:absolute;
+            left:calc(100% + 10px);
+            top:-4px;
+            font-size:12px;
+        }
+
+        .skill_status li:nth-child(4)::before {
+            content:'PHOTOSHOP';
+            position:absolute;
+            right:calc(100% + 10px);
+            top:-3px;
+            font-size:12px;
+        }
+
+        .skill_status li:nth-child(4)::after {
+            content:'60%';
+            position:absolute;
+            left:calc(100% + 10px);
+            top:-4px;
+            font-size:12px;
+        }
+
+        .skill_status div {
+            width:0;
+            height:10px;
+            border-radius: 5px;
+        }
+
+        .skill_status li:nth-child(1) div {
+            background:#ff6e51;
+        }
+
+        .skill_status li:nth-child(2) div {
+            background:#ffc251;
+        }
+
+        .skill_status li:nth-child(3) div {
+            background:#77ff51;
+        }
+
+        .skill_status li:nth-child(4) div {
+            background:#51eeff;
+        }
+
+
+
+
+
+    </style>
+
+    <script>
+        $(document).ready(function(){
+
+            $('#btn01').click(function(){ // play 버튼 클릭시 애니메이션 동작
+                $('.circle').animate({'left':'800px'}, 2000,).animate({'left':'0'}, 1500);
+            });
+
+            $('#btn02').click(function(){ // play 버튼 클릭시 애니메이션 동작
+                $('.circle').stop();
+            });
+
+            $('#btn03').click(function(){ // 원위치로 버튼 클릭시 처음위치로 이동
+                $('.circle').animate({'left':'0'}, 0);
+                // $('.circle').css({'left':'0'});
+            });
+
+
+
+            // 버튼 클릭시 캐릭터 사진 이동하기
+
+            let n = 50; // 이동할 초기값
+
+            $('#l_btn').click(function(){
+                $('#kakao').animate({'left':'-=' + n}, 500);
+            });
+
+            $('#r_btn').click(function(){
+                $('#kakao').animate({'left':'+=' + n}, 500);
+            });
+
+            $('#t_btn').click(function(){
+                $('#kakao').animate({'top':'-=' + n}, 500);
+            });
+
+            $('#b_btn').click(function(){
+                $('#kakao').animate({'top':'+=' + n}, 500);
+            });
+
+
+
+
+            // box에 마우스 오버시 움직이게 하기
+            $('.box').mouseenter(function(){
+                $(this).animate({'left':'800'}, 600);
+            });
+
+            $('.box').mouseleave(function(){
+                $(this).animate({'left':'0'}, 1200);
+            });
+
+
+
+            //  easing값 사용하기
+
+            $('#btn04').click(function(){
+                $('.bar01').animate({'width':'500px'}, 500, 'easeOutQuint');
+            });
+
+            $('#btn05').click(function(){
+                $('.bar02').animate({'width':'800px'}, 500, 'easeOutElastic');
+            });
+
+            $('#btn06').click(function(){
+                $('.bar03').animate({'width':'400px'}, 500, 'easeInBounce'); 
+            });
+
+
+            // status bar
+
+
+            let status = ["{'width':'80%'}", "'width':'60%'", "'width':'20%'", "'width':'60%'"];
+
+            let i = 500;
+
+            $('.skill_status li:nth-child(1) div').delay(i * '0').animate({'width':'80%'}, i, 'easeOutQuint');
+            $('.skill_status li:nth-child(2) div').delay(i * '1').animate({'width':'60%'}, i, 'easeOutQuint');
+            $('.skill_status li:nth-child(3) div').delay(i * '2').animate({'width':'20%'}, i, 'easeOutQuint');
+            $('.skill_status li:nth-child(4) div').delay(i * '3').animate({'width':'60%'}, i, 'easeOutQuint');
+
+            // for(let a = 0; a < $('.skill_status li').legnth;a++){
+            //     // status.forEach(function(e){
+            //     for(b in status){
+            //         $('.skill_status li:nth-child(' + a + ') div').delay(i * a).animate(status[b], i, 'easeOutQuint');
+            //     };  
+            // };
+
+            // $('.skill_status li:nth-child(1) div').delay(i * '0').animate(elemtent_width, i, 'easeOutQuint');
+
+        });
+    </script>
+</head>
+<body>
+    <h2>제이쿼리_01_animate메서드</h2>
+    <p>
+        제이쿼리에서는 효과와 애니메이트 메소드를 사용하여 사용자가 선택한 요소를 다양하게 움직이게 만들 수 있다.
+    </p>
+
+    <h3>1. animate 메소드 작성법</h3>
+    <p>
+        $('대상').animate({'속성':'값'}, 시간, 가속도, 콜백함수);
+    </p>
+    <p>
+        {'속성':'값'} - css 속성과 값을 말하며, '값'에는 자바스크립트 변수나 연산자를 사용할 수 있다.
+    </p>
+    <p>
+        시간 - 애니메이션이 동작하는 시간을 말하여 1/1000초 = 1초를 나타냄
+    </p>
+    <p>
+        가속도 - easing메소드를 활용한 값을 말함(이미지 참조)
+    </p>
+    <p>
+        콜백함수 - callback function으로서 애니메이션 동작이 끝나면 다음 동작을 이어서 실행하고가 할 때 사용.
+    </p>
+
+    <h3>2. animate메소드 사용하여 '원'움직이게 하기</h3>
+
+    <div class="circle">원</div>
+    <input type="button" value="play" id="btn01">
+    <input type="button" value="stop" id="btn02">
+    <input type="button" value="원위치로" id="btn03">
+
+
+    <h3>3. 자바스크립트 절대값을 활용하여 캐릭터 위치 조정하기</h3>
+
+    <img src="./images/animate_img.png" alt="캐긱터어어" id="kakao">
+    <br>
+    <br>
+    <input type="button" value="&#x2190;" id="l_btn">
+    <input type="button" value="&#x2192;" id="r_btn">
+    <input type="button" value="&#x2191;" id="t_btn">
+    <input type="button" value="&#x2193;" id="b_btn">
+
+
+
+    <h3>4. box에 마우스 오버시 애니메이션 연속 동작하게 하기</h3>
+
+    <div class="box">&nbsp;</div>
+    <div class="box">&nbsp;</div>
+    <div class="box">&nbsp;</div>
+    <div class="box">&nbsp;</div>
+    <div class="box">&nbsp;</div>
+
+
+
+    <h3>5. 제이쿼리 UI라이브러리를 사용하여 속도감 주기</h3>
+    <p>
+        jquery.com 사이트의 왼쪽 상단의 ui탭을 클릭하고 왼쪽 easing 메뉴에서 jquery.ui 라이브러리를 찾아 연결하여 사용한다.
+    </p>
+    <img src="./images/easing.png" alt="속도감주기">
+
+
+    <div class="bar01"></div>
+    <input type="button" value="easeOutQuint" id="btn04">
+    <div class="bar02"></div>
+    <input type="button" value="easeOutElastic" id="btn05">
+    <div class="bar03"></div>
+    <input type="button" value="easeInBounce" id="btn06">
+
+    
+    <h3>6. 실습예제 - 자신의 능력치 표현하기(html, css, javascript, jquery, UI/UX design)</h3>
+
+    <ul class="skill_status">
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+        <li>
+            <div></div>
+        </li>
+    </ul>
+
+
+
+</body>
+</html>
