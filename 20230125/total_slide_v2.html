@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 슬라이드_좌, 우(페이지번호, 플레이, 스탑버튼, 조, 우버튼)</title>
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+
+        ul, li, ol {
+            list-style:none;
+        }
+
+        a {
+            text-decoration:none;
+            color:#333;
+        }
+
+        body {
+            font-family:'맑은 고딕', arial, sans-serif;
+            font-size:12px;
+            color:#333;
+        }
+        
+        h2, h2+ul {
+            padding:10px;
+        }
+
+        img {
+            display:block;
+        }
+
+        .slide {
+            position:relative;
+            width:340px;
+            height:378px;
+            margin:0 auto;
+            overflow: hidden;
+        }
+        
+        .slide > ul {
+            display:flex;
+            flex-direction: column;
+        }
+
+        i.fas {
+            position:absolute;
+            bottom:10px;
+            color:#fff;
+            font-size:24px;
+            cursor:pointer;
+        }
+
+        i.fa-angle-up {
+            right:100px;
+        }
+        i.fa-angle-down {
+            right:70px;
+        }
+        i.fa-play {
+            right:40px;
+        }
+        i.fa-pause {
+            right:10px;
+        }
+
+        .page {
+            position:absolute;
+            left:10px;
+            bottom:10px;
+            color:#fff;
+            font-size:18px;
+        }
+
+    </style>
+    
+    <!-- fontawsome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <!-- jquery2.2.4 -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <script>
+        $(function(){
+
+            //  1. 변수선언
+            let slide = $('.slide ul');
+            let n = $('.page');
+            let up_btn = $('i.fa-angle-up');
+            let down_btn = $('i.fa-angle-down');
+            let play_btn = $('i.fa-play');
+            let stop_btn = $('i.fa-stop');
+            let img_height = $('.slide img').height();
+            let num = 1;
+
+            n.text(num + '/3');
+
+            //  2. 1번 슬라이드 앞에 3번을 배치한다.
+            $('.slide ul > li:last-child').insertBefore('.slide ul > li:first-child');
+            slide.css({'margin-top': -img_height});
+
+            //  3. moveUp 함수
+            function moveUp(){
+                slide.animate({'margin-top':-img_height * 2}, 500, function(){
+                    $('.slide ul>li:first-child').insertAfter('.slide ul>li:last-child');
+                    slide.css({'margin-top':-img_height});
+
+                    if(num == 3){
+                        num = 1;
+                    }else{
+                        num++;
+                    }
+                    n.text(num + '/3');
+                });
+            }
+
+            //  4. moveDown 함수
+            function moveDown(){
+                slide.animate({'margin-top':'0px'}, 500, function(){
+                    $('.slide ul>li:last-child').insertBefore('.slide ul>li:first-child');
+                    slide.css({'margin-top':-img_height});
+
+                    if(num == 1){
+                        num = 3;
+                    }else{
+                        num--;
+                    }
+                    n.text(num + '/3');
+                });
+            }
+
+            //  5. 시간객체로 3초마다 함수 호출
+            let Timer = setInterval(moveUp, 3000);
+
+            // 6. pause 버튼 클릭시 시간을 제거하여 멈추게 한다.
+            stop_btn.click(function(){
+                clearInterval(Timer);
+            });
+
+            //  7. play 버튼 클릭시 시간을 생성하여 움직이게 한다.
+            play_btn.click(function(){
+                Timer = setInterval(moveUp, 3000);
+            });
+
+            //  8. 좌, 우버튼을 클릭시 각각 해당하는 방향으로 움직이게 한다.
+            up_btn.click(function(){
+                clearInterval(Timer);
+                moveUp();
+            });
+
+            down_btn.click(function(){
+                clearInterval(Timer);
+                moveDown();
+            });
+
+            // 9. 좌, 우 버튼에 마우스를 아웃하면 다시 시간을 넣어서 자동으로 움직이게 한다.
+            $('i.fa-angle-up, i.fa-angle-down').mouseleave(function(){
+                clearInterval(Timer);
+                Timer = setInterval(moveUp, 3000);
+            });
+
+            // 10. 
+
+        });
+    </script>
+
+
+
+
+
+
+</head>
+<body>
+    <h2>제이쿼리 슬라이드_좌, 우(페이지번호, 플레이, 스탑버튼, 조, 우버튼)</h2>
+
+    <ul>
+        <li>
+            - 3장의 사진을 가로배치한다.
+        </li>
+        <li>
+            - 오른쪽 끝에 있는 목록을 1번의 앞으로 배치한다.
+        </li>
+        <li>
+            - moveleft, moveRight함수를 작성하여 좌, 우측으로 각각 움직이는 애니메이션을 작성한다.
+        </li>
+        <li>
+            - setInterval객체를 사용하여 3초마다 함수를 호출하여 자동으로 움직이게 한다.
+        </li>
+        <li>
+            - 슬라이드의 왼쪽 하단에 페이지 번호를 삽입한다.
+        </li>
+        <li>
+            - 슬라이드의 오른쪽에 좌, 우 버튼을 만들고 클릭시 각각 해당 함수가 호출되어 슬라이드가 움직이게 한다.
+        </li>
+        <li>
+            - 슬라이드의 오른쪽 하단 끝에 '플레이', '스탑' 버튼을 만들고 각각 클릭시 시간이 플레이, 스탑이 되도록 한다.
+        </li>
+    </ul>
+
+
+    <article class="slide">
+        <ul>
+            <li>
+                <a href="#" title="배너1">
+                    <img src="./images01/01.jpg" alt="배너1">
+                </a>
+            </li>
+            <li>
+                <a href="#" title="배너2">
+                    <img src="./images01/02.jpg" alt="배너2">
+                </a>
+            </li>
+            <li>
+                <a href="#" title="배너3">
+                    <img src="./images01/03.jpg" alt="배너3">
+                </a>
+            </li>
+        </ul>
+        <i class="fas fa-angle-up"></i>
+        <i class="fas fa-angle-down"></i>
+        <i class="fas fa-play"></i>
+        <i class="fas fa-pause"></i>
+        <span class="page">&nbsp;</span>
+    </article>
+
+</body>
+</html>
