@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>에뛰드하우스</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <style>
+
+        * {
+            margin:0;
+            padding:0;
+        }
+
+        body {
+            font-family:"맑은 고딕", arial, sans-serif;
+            font-size:12px;
+            color:#292929;
+            position:static;
+        }
+
+        
+
+        ul, li, ol {
+            list-style:none;
+        }
+
+        a {
+            text-decoration: none;
+            color:#292929;
+        }
+
+        #wrap {
+            width:100%;
+            position:absolute;
+            right:0;
+            transition: 0.3s;
+        }
+
+        
+
+        header {
+            width:100%;
+            height:80px;
+            background:#ffe6ee;
+            position:fixed;
+            z-index:9999;
+        }
+
+        header h1 {
+            text-align:center;
+        }
+
+        header h1 img {
+            width:120px;
+            padding-top:10px;
+        }
+
+        .toggle {
+            position:fixed;
+            right:10px;
+            top:12px;
+
+            display:block;
+            padding:20px 10px;
+
+            z-index:9999;
+        }
+
+        .toggle span {
+            position:relative;
+            display:block;
+            width:40px;
+            height:4px;
+            background:#ef426f;
+        
+            transition:0.3s;
+        }
+
+        .toggle span:nth-child(1) {
+            top:-5px;
+        }
+
+        .toggle span:nth-child(2) {
+            top:0;
+        }
+
+        .toggle span:nth-child(3) {
+            top:5px;
+        }
+
+        .toggle.active span {
+            background:#fff;
+        }
+
+        .toggle.active span:nth-child(1) {
+            top:4px;
+            transform: rotate(45deg);
+        }
+
+        .toggle.active span:nth-child(2) {
+            width:0;
+        }
+
+        .toggle.active span:nth-child(3) {
+            top:-4px;
+            transform: rotate(-45deg);
+        }
+
+        .gnb {
+            background:#ef426f;
+            width:80%;
+            height:100vh;
+            position:fixed;
+            right:-80%;
+
+            z-index:-1;
+            transition:0.3s;
+        }
+
+
+        body.active {
+            overflow: hidden;
+        }
+
+        body.active #wrap {
+            right:80%;
+        }
+
+        body.active .gnb {
+            right:0;
+        }
+
+
+        main {
+            width:100%;
+            height:100%;
+            padding-top:80px;
+        }
+
+
+
+
+
+
+        .slide_wrap {
+            overflow: hidden;
+
+            position: relative;
+        }
+
+        .slide {
+            display:flex;
+            width:300%;
+
+            position:relative;
+        }
+
+        .slide li {
+            width:100%;
+        } 
+
+        .slide li img {
+            width:100%;
+            display:block;
+        }
+
+        .bullet {
+            position:absolute;
+            bottom:20px;
+            left:50%;
+            transform:translateX(-50%);
+
+            display:flex;
+        }
+
+        .bullet li {
+            width:40px;
+            height:4px;
+            background:#e1e1e1;
+            margin:0 2px;
+            cursor:pointer;
+        }
+
+        .bullet li.on {
+            background:#ef426f;
+        }
+
+
+
+
+        footer {
+            background:#292929;
+            color:#fff;
+            text-align:center;
+        }
+
+        footer address {
+            line-height:60px;
+            font-style:normal;
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <h1>
+                <a href="m_index.html" title="메인페이지로 바로가기">
+                    <img src="./images/logo.png" alt="로고">
+                </a>
+            </h1>
+
+            <a href="#" class="toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </a>
+        </header>
+
+        <nav class="gnb">
+            <ul>
+                <li>
+                    <a href="#" title="">menu01</a>
+                </li>
+                <li>
+                    <a href="#" title="">menu02</a>
+                </li>
+                <li>
+                    <a href="#" title="">menu03</a>
+                </li>
+                <li>
+                    <a href="#" title="">menu04</a>
+                </li>
+                <li>
+                    <a href="#" title="">menu05</a>
+                </li>
+                <li>
+                    <a href="#" title="">menu06</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main>
+            <article class="slide_wrap">
+                <ul class="slide">
+                    <li class="s00">
+                        <a href="#" title="배너이미지">
+                            <img src="./images/slide01_01.jpg" alt="배너이미지">
+                        </a>
+                    </li>
+                    <li class="s01">
+                        <a href="#" title="배너이미지">
+                            <img src="./images/slide02_02.jpg" alt="배너이미지">
+                        </a>
+                    </li>
+                    <li class="s02">
+                        <a href="#" title="배너이미지">
+                            <img src="./images/slide03_03.jpg" alt="배너이미지">
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="bullet">
+                    <li class="on"></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </article>
+        </main>
+
+        <footer>
+            <address>copyright2023&copy;에뛰드 하우스 allrights reserved.</address>
+        </footer>
+    </div>
+
+    <script>
+
+        $(function(){
+
+            let i = $('.slide li').index();
+
+            let s00 = $('.s00').html();
+            let s01 = $('.s01').html();
+            let s02 = $('.s02').html();
+            
+            function slide(){
+                $('.slide').animate({'left': '-100%'}, 500, function(){
+                    $('.slide li:first-child').insertAfter('.slide li:last-child');
+                    $('.slide').css({'left': '0'});
+                });
+                
+                (i == 2) ? i = 0 : i++
+                console.log(i);
+
+                $('.bullet li').removeClass('on');
+                $('.bullet li').eq(i).addClass('on');
+                
+            }
+
+            let Timer = setInterval(slide, 3500);
+
+            $('.bullet li').click(function(){
+                let n = $(this).index();
+
+                
+            });
+
+            console.log(s00);
+
+            
+            $('.toggle').click(function(e){
+                e.preventDefault();
+                $(this).toggleClass('active');
+                $('body').toggleClass('active');
+
+                clearInterval(Timer);
+
+                if($('body').hasClass('active') == 0){
+                    Timer = setInterval(slide, 3000);
+                }
+
+            });
+
+            
+
+            
+            
+
+        });
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>에뛰드 모바일 웹 내비게이션</title>
+    <link rel="stylesheet" href="./css/main.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <h1>
+                <a href="m_index.html" title="메인페이지 바로가기">
+                    <img src="./images/logo.png" alt="로고">
+                </a>
+            </h1>
+
+            <div id="toggle">
+                <span>&nbsp;</span>
+                <span>&nbsp;</span>
+                <span>&nbsp;</span>
+            </div>
+        </header>
+
+        <!-- gnb -->
+        <nav class="gnb">
+            <ul>
+                <li>
+                    <a href="#" title="">menu01</a>
+                </li>
+                <li>
+                    <a href="#" title="">menu02</a>
+                </li>
+                <li>
+                    <a href="#" title="">menu03</a>
+                </li>
+                <li>
+                    <a href="#" title="">menu04</a>
+                </li>
+                <li>
+                    <a href="#" title="">menu05</a>
+                </li>
+                <li>
+                    <a href="#" title="">menu06</a>
+                </li>
+            </ul>
+        </nav>
+
+        <main>
+            <!-- 슬라이드 3장 -->
+            <!-- <article class="slide_wrap">
+                <ul class="slide">
+                    <li>
+                        <a href="#" title="배너이미지">
+                            <img src="./images/slide01_01.jpg" alt="배너이미지">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="배너이미지">
+                            <img src="./images/slide02_02.jpg" alt="배너이미지">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="배너이미지">
+                            <img src="./images/slide03_03.jpg" alt="배너이미지">
+                        </a>
+                    </li>
+                </ul>
+            </article> -->
+        </main>
+
+        <footer>
+            <address>copyright2023&copy;에뛰드 하우스 allrights reserved.</address>
+        </footer>
+
+    </div>
+
+    <script>
+
+        $(function(){
+
+            // 토글버튼
+            let t_btn = $('#toggle');
+            t_btn.click(function(){
+                $(this).find('span').first().toggleClass('act01');
+                $(this).children().eq(1).toggleClass('act02');
+                $(this).find('span').last().toggleClass('act03');
+
+                // 토글버튼 클릭시 wrap의 위치가 왼쪽으로부터 80% 위치에 배치된다.
+                $('#wrap').toggleClass('wrap_pos');
+                $('body').toggleClass('no-scroll');
+            });
+
+
+            // 2. 스크롤값이 0보다 크면
+            $(window).scroll(function(){
+                //  브라우저의 세로 스크롤값
+                let sPos = $(this).scrollTop();
+                console.log(sPos);
+
+                if(sPos > 0){
+                    $('#toggle').addClass('on');
+                }else{
+                    $('#toggle').removeClass('on');
+                }
+            });
+
+            //  헤더의 위치속성을 fixed로 설정하여 위로 안올라가게 한다.
+
+
+
+
+            //  슬라이드
+
+            // $('.slide').css({});
+
+
+        });
+
+    </script>
+</body>
+</html>

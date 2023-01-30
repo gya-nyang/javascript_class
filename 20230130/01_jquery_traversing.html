@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>01_jquery_graversing(문서객체 탐색)</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <style>
+
+        ul {
+            border:2px solid #22ff7e;
+        }
+
+        .page {
+            display:flex;
+            justify-content: center;
+            list-style:none;
+            padding:0px;
+            font-size:12px;
+            border:none;
+        }
+
+        .page li {
+            padding:0 5px;
+            margin-right:-1px;
+            border:1px solid #ccc;
+            color:#4190ff;
+            border:1px solid #ccc;
+            cursor: pointer;
+        }
+
+        .page li:first-child {
+            border-radius:2px 0 0 2px;
+        }
+
+        .page li:last-child {
+            border-radius:0 2px 2px 0;
+        }
+
+        .page li:hover {
+            background:#dcdcdc;
+        }
+
+        .page li.on {
+            background:#4190ff;
+            color:#fff;
+        }
+
+    </style>
+    <script>
+
+        $(function(){
+            //  1. 부모찾기
+            $('#btn01').click(function(){
+                $('.list01 > li').parent().css({'border':'3px solid #292929'});
+            });
+
+            $('#btn02').click(function(){
+                $('.list01 > li').parents().css({'border':'3px dotted #292929'});
+            });
+
+            $('#btn03').click(function(){
+                $('.list01 > li').parentsUntil('html').css({'border':'3px double #292929'});
+            });
+
+            //  2. 자식찾기
+            $('#btn04').click(function(){
+                $('.list02').children().css({'color':'#f00'});
+            });
+
+            $('#btn05').click(function(){
+                $('.list02').find('.last').css({'background':'#ff0'});
+            });
+
+            // 3. 현제요소 찾기
+            $('#btn06').click(function(){
+                $('.list03 li:nth-child(2)').siblings().css({'color':'#f00'});
+            });
+
+            $('#btn07').click(function(){
+                $('.list03 li:first-child').next().css({'color':'#00f'});
+            });
+
+            $('#btn08').click(function(){
+                $('.list03 li:first-child').nextUntil('.center').css({'color':'#0f0'});
+            });
+
+            $('#btn09').click(function(){
+                $('.list03 li:first-child').nextAll().css({'color':'#fd1f7b'});
+            });
+
+            $('#btn10').click(function(){
+                $('.list03 li:last-child').prev().css({'background':'#ff0'});
+            });
+
+            $('#btn11').click(function(){
+                $('.list03 li:last-child').prevAll().css({'background':'#0f0'});
+            });
+
+            $('#btn12').click(function(){
+                $('.list03 li:last-child').prevUntil('.center').css({'background':'#ffc107', 'color': '#fff'});
+            });
+
+            //  4. 탐색메서드
+            $('#btn13').click(function(){
+                $('.list04 li').first().css({'background':'#ff0'});
+            });
+
+            $('#btn14').click(function(){
+                $('.list04 li').last().css({'background':'#ff0'});
+            });
+
+            $('#btn15').click(function(){
+                $('.list04 li').eq(2).css({'background':'#0f0'});
+            });
+
+            $('#btn16').click(function(){
+                $('.list04 li').filter('.two').css({'color':'#f00'});
+            });
+
+            $('#btn17').click(function(){
+                $('.list04 li').not('.two').css({'color':'#00f'});
+            });
+
+
+            //  page 번호
+            $('.page li').click(function(){
+                
+                // 인덱스값으로 컨트롤
+                // let i = $(this).index();
+
+                // if(i != 0 && i != 1 && i != 7 && i != 8){
+                //     $(this).addClass('on').siblings().removeClass('on');
+                // }
+                
+                // 만약 내가 선택한 li에 .ctrl_btn 서식이 존재한다면 멈추고 그렇지 ㅇ낳다면 on 클래스를 적용하라
+
+                if($(this).hasClass('ctrl_btn') == 0){
+                    $(this).addClass('on').siblings().removeClass('on');
+                }
+
+            });
+
+
+            // 클릭 단계에서 필터걸기
+            // $('.page li').not('ctrl_btn').click(function(){
+            //     $(this).addClass('on').siblings().removeClass('on');
+            // });
+
+        });
+
+    </script>
+</head>
+<body>
+    <h2>01_jquery_traversing(문서객체 탐색)</h2>
+    <p>
+        문서객체모델(DOM) - 제이쿼리 traversing(탐색)메서드는 기존의 선택자보다 좀 더 html 문서의 요소들을 정확하게 선택해주는 메소드이다.
+    </p>
+    <p>
+        css 선택자 부모 아래 자식요소 선택은 '부모 > 자손', '부모 자손', 형제요소 선택 'A + B',  'A ~ B' 방법을 사용한다.
+    </p>
+    <p>
+        제이쿼리에서는 html무서의 구조에서 부모요소를 찾거나 부모의 형제둘, 부모아래 자식요소들, 자식요소에서 부모의 부모들을 찾을 수 있는 메소드들이다.
+    </p>
+
+
+    <h3>1. 부모요소 찾기</h3>
+
+    <ul class="list01">
+        <li>
+            parent() - 선택한 요소의 바로 위에 위치한 부모요소를 선택한다.
+        </li>
+        <li>
+            parents() - 선택한 요소의 위에 위치한 모든 부모요소를 선택한다.
+        </li>
+        <li>
+            parentsUntil() - 선택한 요소에서부터 지정한 요소 전까지 부모요소를 선택한다.
+        </li>
+    </ul>
+
+    <input type="button" value="선택한 요소의 부모찾기(parent())" id="btn01">
+    <input type="button" value="선택한 요소의 부모들찾기(parents())" id="btn02">
+    <input type="button" value="선택한 요소부터 지정한 선택자 전까지의 부모찾기(parentsUntil())" id="btn03">
+
+
+
+    <h3>2. 자식요소 찾기</h3>
+    <p>
+        사용자가 선택한 요소를 기준으로 아래 자식요소를 ㅊ자는 메서드이다.
+    </p>
+
+    <ul class="list02">
+        <li>
+            children() - 선택한 요소의 아래에서 자식요소를 선택
+        </li>
+        <li class="last">
+            find() - 사용자가 선택한 요소의 아래에서 지정한 이름과 잋리하는 요소선택
+        </li>
+    </ul>
+
+    <input type="button" value="부모아래 자식요소 선택(children())" id="btn04">
+    <input type="button" value="부모아래 자식요서 검색하여 선택(find())" id="btn05">
+
+
+
+    <h3>3. 형제요소(sibling) 찾기</h3>
+    <p>
+        Sibiling메소드는 사용자가 선택한 요소를 기준으로 형제관계에 있는 (동일한)요소에서 이전, 다음요소들을 선택할 떄 사용.
+    </p>
+
+    <ul class="list03">
+        <li>
+            sibiling() - 현재요소의 형제관계인 요소를 모두 선택한다.(자신은 제외)
+        </li>
+        <li>
+            next() - 현재요소의 다음에 오는 요소를 선택
+        </li>
+        <li>
+            nextUntil() - 현재요소의 다음에서부터 ~ 이전까지를 선택
+        </li>
+        <li class="center">
+            nextAll() - 현태요소의 다음에 있는 모등 요소를 선택
+        </li>
+        <li>
+            prev() - 현재요소의 이전에 있는 요소를 선택
+        </li>
+        <li>
+            prevAll() - 현재요소의 이전에 있는 모든 요소를 선택
+        </li>
+        <li>
+            prevUntil() - 현재요소의 이전에 있는 요소부터 ~ 전까지를 선택
+        </li>
+    </ul>
+
+    <input type="button" value="sibling()" id="btn06">
+    <input type="button" value="next()" id="btn07">
+    <input type="button" value="nextUntil()" id="btn08">
+    <input type="button" value="nextAll()" id="btn09">
+    <input type="button" value="prev()" id="btn10">
+    <input type="button" value="preveAll()" id="btn11">
+    <input type="button" value="prevUntil()" id="btn12">
+
+
+
+    <h3>4. 탐색(traversing) 메서드 - 필터링</h3>
+    <p>
+        html문서의 구조에서 사용자가 선택한 요소를 정확하게 찾아낼 수 있는 메소드중의 하나이다.
+    </p>
+
+    <ul class="list04">
+        <li>
+            first() - 형제관계 요소들 중에서 첫번째 요소를 선택
+        </li>
+        <li class="two">
+            last() - 형제관계 요소들 중에서 마지막번째 요소를 선택
+        </li>
+        <li>
+            eq(n) - 인덱스값이 n번째에 해당하는 요소를 선택
+        </li>
+        <li>
+            filter() - 사용자가 지정한 이름에 맞는 요소를 선택
+        </li>
+        <li>
+            not() - 사용자가 지정한 이름이 아닌 요소를 선택
+        </li>
+    </ul>
+
+    <input type="button" value="first()" id="btn13">
+    <input type="button" value="last()" id="btn14">
+    <input type="button" value="eq(n)" id="btn15">
+    <input type="button" value="filter()" id="btn16">
+    <input type="button" value="not()" id="btn17">
+
+
+
+
+    <h3>실습예제 - 닷홈 공지사항 페이지번호 목록구현</h3>
+
+    <ul class="page">
+        <li class="ctrl_btn">
+            &laquo;
+        </li>
+        <li class="ctrl_btn">
+            &lt;
+        </li>
+        <li class="on">
+            1
+        </li>
+        <li>
+            2
+        </li>
+        <li>
+            3
+        </li>
+        <li>
+            4
+        </li>
+        <li>
+            5
+        </li>
+        <li class="ctrl_btn">
+            &gt;
+        </li>
+        <li class="ctrl_btn">
+            &raquo;
+        </li>
+    </ul>
+</body>
+</html>
