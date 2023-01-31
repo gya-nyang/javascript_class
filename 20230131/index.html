@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제이쿼리 문서객체 조작 - scroll layout</title>
+    <link rel="stylesheet" href="./css/main.css" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <script>
+
+        $(function(){
+
+            // 1. 내비게이션 메뉴 클릭시 해당하는 인덱스 값 구하기
+
+            let menu = $('header .gnb > ul > li');
+
+            menu.click(function(e){
+
+                e.preventDefault();
+
+                let n = $(this).index();
+                console.log(n);
+
+                $('html, body').stop().animate({scrollTop: $('section').eq(n).offset().top - 60 }, 500);
+            });
+
+        });
+
+    </script>
+</head>
+<body>
+    
+    <!-- header -->
+    <header>
+        <h1>
+            <a href="index.html" title="메인페이지로 바로가기">상단로고</a>
+        </h1>
+
+        <nav class="gnb">
+            <ul>
+                <li>
+                    <a href="#" title="home">home</a>
+                </li>
+                <li>
+                    <a href="#" title="features">features</a>
+                </li>
+                <li>
+                    <a href="#" title="overview">overview</a>
+                </li>
+                <li>
+                    <a href="#" title="pricing">pricing</a>
+                </li>
+                <li>
+                    <a href="#" title="team">team</a>
+                </li>
+                <li>
+                    <a href="#" title="blog">blog</a>
+                </li>
+                <li>
+                    <a href="#" title="contact">contact</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- main -->
+    <main>
+        <section class="section01">
+            <h2>메인 비주얼 콘텐츠</h2>
+        </section>
+        
+        <section class="section02">
+            <h2>features</h2>
+        </section>
+        
+        <section class="section03">
+            <h2>overview</h2>
+        </section>
+        
+        <section class="section04">
+            <h2>pricing</h2>
+        </section>
+        
+        <section class="section05">
+            <h2>team</h2>
+        </section>
+        
+        <section class="section06">
+            <h2>blog</h2>
+        </section>
+        
+        <section class="section07">
+            <h2>contact</h2>
+        </section>
+        
+    </main>
+
+    <!-- footer -->
+    <footer>
+        <address>
+            copyright&copy; 2023 000 allrights reserved.
+        </address>
+    </footer>
+
+</body>
+</html>

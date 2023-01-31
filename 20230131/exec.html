@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>cjmall_faq</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+
+        ul, li, ol {
+            list-style:none;
+        }
+
+        a {
+            text-decoration: none;
+            color:#333;
+        }
+
+        body {
+            font-family:"맑은 고딕", arial, sans-serif;
+            font-size:14px;
+        }
+
+        .txt-red {
+            color:#f00;
+        }
+
+        main {
+            margin-top:50px;
+        }
+
+        section {
+            max-width:750px;
+            width:100%;
+            margin:0 auto;
+        }
+
+        h2 {
+            font-size:18px;
+            letter-spacing:-0.05em;
+            margin-bottom:20px;
+        }
+
+        dl {
+            border-bottom:1px solid #e1e1e1;
+            line-height:24px;
+            counter-reset: dt;
+        }
+
+        dt {
+            position:relative;
+            border-top:1px solid #e1e1e1;
+            padding:14px 36px 15px;
+            cursor:pointer;
+        }
+
+        dt::before {
+            display:block;
+            position:absolute;
+            left:10px;
+            counter-increment: dt;
+            content:counter(dt);
+            color: #640faf;
+            font-weight:bold;
+            font-size:15px;
+        }
+
+        dd {
+            display:none;
+            padding:20px;
+            background:#f5f5f5;
+            color:#666;
+        }
+
+        i.fas {
+            color:#666;
+            position:absolute;
+            right:20px;
+            top:50%;
+            transform: translateY(-50%);
+        }
+
+        dt.on + dd {
+            display:block;
+        }
+
+        dd img {
+            width:100%;
+            display:block;
+        }
+
+        dd .btn {
+            display:block;
+            margin:5px auto;
+            padding:4px 10px;
+            border:1px solid #640faf;
+            border-radius:3px;
+            color:#640faf;
+            text-align: center;
+            max-width:240px;
+            width:100%;
+        }
+
+        dd .btn:first-of-type {
+            margin-top:40px;
+        }
+
+        dd .btn:hover,
+        dd a.txt-red:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+</head>
+<body>
+    <main>
+        <section>
+            <h2>자주하는 질문 TOP10</h2>
+
+            <dl>
+                <dt>
+                    반품 신청은 어떻게 하나요?
+                    <i class="fas fa-angle-down"></i>
+                </dt>
+                <dd>
+                    <img src="./images/faq_01.jpg" alt="반품신청방법">
+                </dd>
+                <dt>
+                    주문을 취소하고 싶어요.
+                    <i class="fas fa-angle-down"></i>
+                </dt>
+                <dd>
+                    <img src="./images/faq_02.jpg" alt="주문취소방법">
+                    <a href="#" title="주문/배송조회 PC 바로가기" class="btn">주문/배송조회 PC 바로가기</a>
+                    <a href="#" title="주문/배송조회 모바일 바로가기" class="btn">주문/배송조회 모바일 바로가기</a>
+                </dd>
+                <dt>
+                    리뷰는 어떻게 작성하나요?
+                    <i class="fas fa-angle-down"></i>
+                </dt>
+                <dd>
+                    <img src="./images/faq_03.jpg" alt="리뷰작성방법">
+                    <a href="#" title="리뷰 작성 바로가기" class="btn">리뷰 작성 바로가기</a>
+                </dd>
+                <dt>
+                    반품 시 별도 택배비가 부과되나요?
+                    <i class="fas fa-angle-down"></i>
+                </dt>
+                <dd>
+                    1. 반품 택배비가 무료인 경우
+                    <br>
+                    - 수령한 상품이 파손/불량이거나 상품이 잘못배송된 경우
+                    <br>
+                    <br>
+                    2. 반품 택배비가 고객 부담인 경우
+                    <br>
+                    - 구입합 상품 상세설명의 교환/반품정보에 배송비 고객부담이라고 표기되어 있는 상품 중 고객변심에 의한 반품을 요청하는 경우
+                </dd>
+                <dt>
+                    원하는상품 방송시간을 문자로 받고 싶어요
+                    <i class="fas fa-angle-down"></i>
+                </dt>
+                <dd>
+                    <img src="./images/faq_05.jpg" alt="방송시간 확인 방법">
+                </dd>
+                <dt>
+                    회원 탈퇴는 어떻게 하나요?
+                    <i class="fas fa-angle-down"></i>
+                </dt>
+                <dd>
+                    CJ온스타일 PC 로그인 후 마이존 > [회원 탈퇴] 메뉴를 통해 고객님께서 직접 처리할 수 있습니다.
+                    <br>
+                    <br>
+                    <a href="#" title="회원탈퇴 PC바로가기" class="txt-red">회원탈퇴 PC바로가기</a>
+                    <br>
+                    <br>
+                    <br>
+                    [회원 탈퇴시 유의점]
+                    <br>
+                    - CJ ONE 통합회원의 경우 CJ ONE사이트에서 탈퇴(약관동의철회)처리를 진행하셔야합니다.
+                    <br>
+                    - 회원 아이디로 등록되어 있는 적립금, 할인쿠폰, CJ ONE 포인트는 자동 소멸됩니다.
+                    <br>
+                    - 회원 탈퇴 시 CJ온스타일이 운영하고 있는 모든 사이트에서 동시 회원탈퇴 됩니다.
+                    <br>
+                    - 회원 탈퇴 후 재가입 하는 경우에도 신규가입혜택(할인쿠폰 등)은 적용되지 않으며 신규회원 대상 이벤트에 응모할 수 없습니다.
+                </dd>
+                <dt>
+                    배송지를 변경 할 수 있나요?
+                    <i class="fas fa-angle-down"></i>
+                </dt>
+                <dd>
+                    <img src="./images/faq_07.jpg" alt="배송지 변경 방법">
+                    <a href="#" title="주문/배송조회 PC 바로가기" class="btn">주문/배송조회 PC 바로가기</a>
+                    <a href="#" title="주문/배송조회 모바일 바로가기" class="btn">주문/배송조회 모바일 바로가기</a>
+                </dd>
+                <dt>
+                    교환 신청은 어떻게 하나요?
+                    <i class="fas fa-angle-down"></i>
+                </dt>
+                <dd>
+                    <img src="./images/faq_08.jpg" alt="교환신청방법">
+                </dd>
+                <dt>
+                    CJ온스타일 앱(어플리케이션)은 어떻게 설치하나요?
+                    <i class="fas fa-angle-down"></i>
+                </dt>
+                <dd>
+                    <img src="./images/faq_09.jpg" alt="CJ온스타일 앱(어플리케이션) 설치방법">
+                    <a href="#" title="아이폰 iOS 앱설치 바로가기" class="btn">아이폰 iOS 앱설치 바로가기</a>
+                    <a href="#" title="안드로이드 앱설치 바로가기" class="btn">안드로이드 앱설치 바로가기</a>
+                </dd>
+                <dt>
+                    결제수단 변경하려면 주문취소하고 재주문하나요?
+                    <i class="fas fa-angle-down"></i>
+                </dt>
+                <dd>
+                    상품을 취소하지 않고도 다른 결제수단으로 결제 변경이 가능합니다.
+                    <br>
+                    - [CJ온스타일 로그인] > [마이존] > [주문/배송 조회] > [결제변경]
+                    <br>
+                    : 당일 주문 건에 한하여 23시30분까지 신용카드로 결제변경이 가능합니다.
+                    <br>
+                    <br>
+                    - 신용카드 외 다른 결제수단으로 변경을 원하는 경우
+                    <br>
+                    : 당사 고객센터(1644-2525)로 연락주시면 결제변경 도와드리겠습니다.
+                    <br>
+                    <br>
+                    <a href="#" title="주문/배송조회 PC 바로가기" class="txt-red">주문/배송조회 PC 바로가기</a>
+                    <br>
+                    <a href="#" title="주문/배송조회 모바일 바로가기" class="txt-red">주문/배송조회 모바일 바로가기</a>
+                </dd>
+            </dl>
+        </section>
+    </main>
+    <script>
+
+        $(function(){
+
+            $('dt').click(function(){
+                $(this).toggleClass('on').siblings().removeClass('on');
+                // $(this).find('i.fas').toggleClass('fa-angle-up').parent().siblings().find('i.fas').removeClass('fa-angle-up');
+                $(this).siblings('dt').find('i.fas').removeClass('fa-angle-up');
+                $(this).find('i.fas').toggleClass('fa-angle-up');
+            });
+
+        });
+
+    </script>
+</body>
+</html>
