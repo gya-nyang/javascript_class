@@ -6,6 +6,7 @@
     --bc-color01:#ff6b81;
     --t-color01:#333;
     --t-color02:#fff;
+    --t-color03:#ffff64;
 }
 
 
@@ -72,8 +73,16 @@ header h1 a {
     line-height:60px;
     font-size:20px;
     text-transform: capitalize;
+
+    transition:0.3s;
 }
 
+.gnb > ul > li > a:hover,
+.t_act {
+    font-size:24px !important;
+    font-weight:bold;
+    color:var(--t-color03) !important;
+}
 
 
 /* 콘텐츠 서식 */

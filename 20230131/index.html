@@ -26,6 +26,55 @@
                 $('html, body').stop().animate({scrollTop: $('section').eq(n).offset().top - 60 }, 500);
             });
 
+
+            // 화면스크롤값 구하기
+
+            $(window).scroll(function(){
+
+                let sPos = $(this).scrollTop();
+                // console.log(sPos);
+
+
+                //  만약에 아래 해당하는 조건범위에 맞는 a요소에 서식 적용하기
+
+                // if(sPos >= 300 && sPos < 900){
+                //     $('.gnb li:nth-child(2) a').addClass('t_act');
+                // }else if(sPos >= 1100 && sPos < 1800){
+                //     $('.gnb li:nth-child(3) a').addClass('t_act');
+                // }else if(sPos >= 2000 && sPos < 2700){
+                //     $('.gnb li:nth-child(4) a').addClass('t_act');
+                // }else if(sPos >= 2900 && sPos < 3600){
+                //     $('.gnb li:nth-child(5) a').addClass('t_act');
+                // }else if(sPos >= 3800 && sPos < 4500){
+                //     $('.gnb li:nth-child(6) a').addClass('t_act');
+                // }else if(sPos >= 4700 && sPos < 5431){
+                //     $('.gnb li:nth-child(7) a').addClass('t_act');
+                // }else if(sPos == 0){
+                //     $('.gnb li:nth-child(1) a').addClass('t_act');
+                // }else{
+                //     $('.gnb li a').removeClass('t_act');
+                // }
+
+
+                // offset메서드로 각각 해당하는 박스의 위치값에 따른 서식 적용하기
+
+                $('main section').each(function(i){
+                    let top = $(this).offset().top - 800;
+                    // 만약에 sPos의 값이 top보다 크면
+                    if(sPos >= top){ 
+                        //  기존 서식을 제거
+                        $('.gnb li a').removeClass('t_act');
+                        // 해당 메뉴에 서식 적용
+                        $('.gnb li').eq(i).find('a').addClass('t_act');
+                        console.log(top);
+                    }
+                })
+
+
+
+            });
+            
+
         });
 
     </script>
@@ -41,7 +90,7 @@
         <nav class="gnb">
             <ul>
                 <li>
-                    <a href="#" title="home">home</a>
+                    <a href="#" title="home"  class="t_act">home</a>
                 </li>
                 <li>
                     <a href="#" title="features">features</a>
