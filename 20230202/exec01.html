@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습예제</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+    <style>
+        * {
+            margin:0;
+            padding:0;
+        }
+
+        ul, ol {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color:#292929;
+        }
+
+        body {
+            background:#ebebeb;
+        }
+
+        article {
+            position:relative;
+            width:1160px;
+            height:820px;
+            margin:80px auto;
+        }
+
+        article ul {
+            display:flex;
+        }
+
+        article ul li {
+            width:25%;
+            height:120px;
+            background:#fff;
+            border-right:1px solid #e1e1e1;
+            box-sizing: border-box;
+        }
+
+        article ul li:last-child {
+            border-right:none;
+        }
+
+        article ul li a {
+            display:inline-block;
+            width:100%;
+            height:100%;
+            text-align: center;
+            line-height:180px;
+        } 
+
+        article ul li:nth-child(1) a {
+            background-image:url("./img/ico_theme_zone_1_off.png");
+            background-repeat:no-repeat;
+            background-position:center 30%;
+        }
+
+        article ul li:nth-child(2) a {
+            background-image:url("./img/ico_theme_zone_2_off.png");
+            background-repeat:no-repeat;
+            background-position:center 30%;
+        }
+
+        article ul li:nth-child(3) a {
+            background-image:url("./img/ico_theme_zone_3_off.png");
+            background-repeat:no-repeat;
+            background-position:center 30%;
+        }
+
+        article ul li:nth-child(4) a {
+            background-image:url("./img/ico_theme_zone_4_off.png");
+            background-repeat:no-repeat;
+            background-position:center 30%;
+        }
+
+        article ul li:nth-child(5) a {
+            background-image:url("./img/ico_theme_zone_5_off.png");
+            background-repeat:no-repeat;
+            background-position:center 30%;
+        }
+
+
+        article ul li div {
+            display:none;
+            position:absolute;
+            left:0;
+            bottom:0;
+            width:100%;
+            height:calc(100% - 120px);
+            overflow: hidden;
+        }
+
+        article ul li div img {
+            width:100%;
+        }
+
+        /* on 클래스 적용 */
+
+        article ul li.on {
+            background:#f06d01;
+        }
+
+        article ul li.on a {
+            color:#fff;
+        }
+
+        article ul li.on div {
+            display:block;
+        }
+
+        article ul li.on:nth-child(1) a {
+            background-image:url("./img/ico_theme_zone_1_on.png");
+            background-repeat:no-repeat;
+            background-position:center 30%;
+        }
+
+        /* article ul li.on:nth-child(2) a {
+            background-image:url("./img/ico_theme_zone_2_on.png");
+            background-repeat:no-repeat;
+            background-position:center 30%;
+        }
+
+        article ul li.on:nth-child(3) a {
+            background-image:url("./img/ico_theme_zone_3_on.png");
+            background-repeat:no-repeat;
+            background-position:center 30%;
+        }
+
+        article ul li.on:nth-child(4) a {
+            background-image:url("./img/ico_theme_zone_4_on.png");
+            background-repeat:no-repeat;
+            background-position:center 30%;
+        }
+
+        article ul li.on:nth-child(5) a {
+            background-image:url("./img/ico_theme_zone_5_on.png");
+            background-repeat:no-repeat;
+            background-position:center 30%;
+        } */
+    </style>
+
+    <script>
+
+        $(function(){
+
+            $('li').click(function(e){
+                e.preventDefault();
+                $(this).addClass('on').siblings().removeClass('on');
+                
+                // index 활용 방법
+                // $('li').each(function(i){
+                //     if($('li').eq(i).hasClass('on')){
+                //         $('li').eq(i).find('a').css({'background-image':'url("./img/ico_theme_zone_' + (i + 1) + '_on.png")'});
+                //     }else{
+                //         $('li').eq(i).find('a').css({'background-image':'url("./img/ico_theme_zone_' + (i + 1) + '_off.png")'});
+                //     }
+                // });
+                
+
+
+                // replace 방법
+                // $('li').each(function(i){
+                //     let change_bg_off = $('li').eq(i).find('a').css('background-image').replace('_on', '_off');
+                //     $('li').eq(i).find('a').css('background-image', change_bg_off);
+                // });
+                // let change_bg_on = $(this).find('a').css('background-image').replace('_off', '_on');
+                // $(this).find('a').css('background-image', change_bg_on);
+
+                // replace 방법 - if문
+                
+                // let n = $(this).index();
+
+                // $('li').each(function(i){
+                //     let change_bg_on = $(this).find('a').css('background-image').replace('_off', '_on');
+                //     $(this).find('a').css('background-image', change_bg_on);
+
+                //     if(n != i){
+                //         let change_bg_off = $('li').eq(i).find('a').css('background-image').replace('_on', '_off');
+                //         $('li').eq(i).find('a').css('background-image', change_bg_off);
+                //     }
+                // });
+
+
+                // split 방법
+                // $('li').each(function(i){
+                //     let change_bg_off = $('li').eq(i).find('a').css('background-image').split('_on');
+
+                //     $('li').eq(i).find('a').css('background-image', change_bg_off[0] + '_off' + change_bg_off[1]);
+                // });
+                // let change_bg_on = $(this).find('a').css('background-image').split('_off');
+                // $(this).find('a').css('background-image', change_bg_on[0] + '_on' + change_bg_on[1]);
+
+                // split 방법 - if문
+                $('li').each(function(i){
+                    let change_bg_on = $(this).find('a').css('background-image').split('_off');
+                    $(this).find('a').css('background-image', change_bg_on[0] + '_on' + change_bg_on[1]);
+
+                    if($('li').eq(i).hasClass('on') == 0){
+                        let change_bg_off = $('li').eq(i).find('a').css('background-image').split('_on');
+                        $('li').eq(i).find('a').css('background-image', change_bg_off[0] + '_off' + change_bg_off[1]);
+                    }
+                });
+                
+                
+
+                            
+            });
+                        
+        });
+
+    </script>
+</head>
+<body>
+    <article>
+        <ul>
+            <li class="on">
+                <a href="#" title="">
+                    테마 여행
+                </a>
+                <div>
+                    <img src="./img/01.jpg" alt="이미지">
+                </div>
+            </li>
+            <li>
+                <a href="#" title="">
+                    추천일정
+                </a>
+                <div>
+                    <img src="./img/02.jpg" alt="이미지">
+                </div>
+            </li>
+            <li>
+                <a href="#" title="">
+                    스크린속 제주
+                </a>
+                <div>
+                    <img src="./img/03.jpg" alt="이미지">
+                </div>
+            </li>
+            <li>
+                <a href="#" title="">
+                    교통정보
+                </a>
+                <div>
+                    <img src="./img/04.jpg" alt="이미지">
+                </div>
+            </li>
+            <li>
+                <a href="#" title="">
+                    안전&middot;안심관광 가이드
+                </a>
+                <div>
+                    <img src="./img/05.jpg" alt="이미지">
+                </div>
+            </li>
+        </ul>
+    </article>
+</body>
+</html>
