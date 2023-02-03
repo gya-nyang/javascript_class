@@ -1,0 +1,236 @@
+@charset "utf-8";
+
+main {
+
+}
+
+main section {
+
+}
+
+#main_intro {
+    height:100vh;
+    overflow: hidden;
+}
+
+#main_intro h2 {
+    display:none;
+}
+
+#main_intro article {
+    position:absolute;
+    width:100%;
+    top:50%;
+    transform: translateY(-50%);
+    z-index:100;
+    text-align:center;
+    color:var(--t-color02);
+}
+
+#main_intro article h3 {
+    font-size:60px;
+    font-weight:bold;
+}
+
+#main_intro article p {
+    line-height:80px;
+    font-size:16px;
+}
+
+#main_intro article a {
+    color:var(--t-color02);
+    font-size:14px;
+    text-decoration: underline;
+    margin:0 20px;
+    padding:5px 10px;
+}
+
+#main_intro article a:first-of-type {
+    background:var(--bg-color01);
+}
+
+#main_intro #next_btn {
+    display:block;
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    width:24px;
+    height:24px;
+    text-indent: -9999px;
+    border-right:1px solid var(--t-color02);
+    border-bottom:1px solid var(--t-color02);
+    transform: rotate(45deg) translateX(-50%);
+}
+
+#top3, #intro, #event, #test, #buy, #cs {
+    height:800px;
+    padding:50px 0;
+    /* background:#ccc; */
+}
+
+/* section 2 */
+
+.swiper {
+    position:absolute;
+    left:50%;
+    transform: translateX(-50%);
+    padding-bottom:620px;
+    
+    width:100%;
+    min-width:1180px;
+    height: 620px;
+    margin:80px auto 120px;
+    overflow: visible;
+}
+
+.swiper > h3 {
+    display:none;
+}
+
+#top3 h2 {
+    font-size:46px;
+    margin:40px 0 24px;
+    text-align: center;
+    font-weight:bolder;
+}
+
+#top3 h2 + p {
+    text-align:center;
+    font-size:16px;
+    font-weight:bold;
+}
+
+.swiper-slide {
+    width:1024px;
+}
+
+.swiper-slide h4 span{
+    display:block;
+    margin:0 auto 18px;
+    line-height:26px;
+    width:66px;
+
+    font-size:14px;
+    color:var(--t-color03);
+    border:2px solid var(--t-color03);
+    border-radius:16px;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+.swiper-slide h4 {
+    font-size:30px;
+    color:var(--bg-color02);
+    font-weight:500;
+    text-align: center;
+}
+
+.car_img_box {
+    width:328px;
+    margin:90px  auto 70px;
+}
+
+.car_img_box img {
+    width:100%;
+}
+
+.spec {
+    display:flex;
+    width:780px;
+    margin:0 auto;
+    justify-content: center;
+    font-size:15px;
+    line-height:20px;
+    margin-bottom:50px;
+
+    opacity:0;
+    transition:0.6s;
+}
+
+.spec li {
+    padding:0 30px;
+    border-right:1px solid #e1e1e1;
+}
+
+.spec li:last-child {
+    border:none;
+}
+
+.swiper-slide-active .spec {
+    opacity:1;
+}
+
+.color_box {
+    display:flex;
+}
+
+.color_box > span {
+    display:block;
+    width:56px;
+    height:40px;
+    margin-right: 20px;
+}
+
+.color_box-khaki {
+    background:#4d4f42;
+}
+
+.color_box-black {
+    background:#131210;
+}
+
+.color_box-white {
+    background:#fff;
+    border:1px solid #e1e1e1;
+    box-sizing: border-box;
+}
+
+.color_box-orange {
+    background:#ff3e20;
+}
+
+.car_price {
+    color:var(--bg-color02);
+}
+
+.car_price span {
+    font-size:26px;
+    font-weight:500;
+}
+
+
+.estimate_btn {
+    display:block;
+    margin:0 auto;
+    width:202px;
+    line-height:46px;
+
+    border:2px solid var(--t-color01);
+    box-sizing: border-box;
+    text-align:center;
+    font-size:15px;
+}
+
+.swiper-pagination {
+    bottom:0 !important;
+}
+
+.swiper-pagination-bullet-active {
+    background:var(--t-color03) !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+    position:absolute;
+    top:50%;
+    transform: translateY(-50%);
+    color:#494949 !important;
+}
+
+.swiper-button-next {
+    right:calc(50% - 650px) !important;
+}
+
+.swiper-button-prev {
+    left:calc(50% - 650px) !important;
+}
