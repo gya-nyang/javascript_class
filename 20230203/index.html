@@ -21,14 +21,14 @@
     <!-- jquery ui -->
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
     <!-- jquery cookie -->
-
+    <script src="./script/jquery.cookie.js"></script>
 
     <!-- css3 prefix js -->
     <script src="./script/prefixfree.min.js"></script>
     <!-- layout.js -->
     <script src="./script/layout.js"></script>
     <!-- main.js -->
-    <script src="./script/main.js"></script>
+    <script src="./script/main.js" defer></script>
 
 
     <!-- swiper -->
@@ -115,7 +115,7 @@
         </section>
 
         <section id="top3">
-            <h2>가장 많이 찾은 캐스퍼 Top3</h2>
+            <h2 class="m_title">가장 많이 찾은 캐스퍼 Top3</h2>
             <p>
                 지금 가장 인기 있는 조합을 확인해보세요.
             </p>
@@ -229,27 +229,128 @@
 
 
         <section id="intro">
-            <h2>소개</h2>
+            <h2 class="m_title">소개</h2>
+
+            <!-- <img src="" alt=""> -->
+            <video src="./images/highlight_intro.mp4" muted autoplay></video>
+            <p class="left_title">
+                강인하고
+                <br>
+                아이코닉한 SUV
+            </p>
+
+            <p class="right_title">
+                젊고 역동적인
+                <br>
+                감성의
+                <br>
+                SUV디자인
+            </p>
+
+            <a href="intro.html" class="more_btn" title="더보기">더보기</a>
+
+
+
         </section>
 
 
         <section id="test">
-            <h2>시승 신청</h2>
+            <h2 class="m_title">시승 신청</h2>
+            <p>
+                캐스퍼가 제공하는 편리한 시승 서비스를 이용해 보세요.
+            </p>
+
+            <article class="test_drive_l">
+                <h3>현대자동차 드라이빙라운지<br>/ CASPER STUDIO 시승</h3>
+                <p class="test_drive_p1">
+                    드라이빙라운지와 CASTER STUDIO에서
+                    <br>
+                    캐스퍼를 체험해보세요.
+                </p>
+
+                <a href="test_drive.html" class="test_drive_btn" title="시승 신청하기">시승 신청하기</a>
+                <br>
+                <a href="" class="test_drive_btn2" title="시승 신청 조회">시승 신청 조회&gt;</a>
+
+                <p class="test_drive_p2">
+                    &middot; 시승 신청은 만21세 이상 운전면허 소지자면 누구나 이용 가능합니다.
+                </p>
+            </article>
+            <article class="test_drive_r">
+                <h3>쏘카<br>카셰어링 시승</h3>
+                <p class="test_drive_p1">
+                    24시간 언제나 내 근처에서 편리하게
+                    <br>
+                    캐스퍼를 체험하실 수 있습니다.
+                </p>
+
+                <a href="" class="test_drive_btn" title="시승 신청하기">시승 신청하기</a>
+
+                <p class="test_drive_p2">
+                    &middot; 쏘카는 만 21세 이상, 운전면허 취등 1년 이상 시 이용할 수 있습니다.
+                </p>
+            </article>
         </section>
 
 
         <section id="event">
-            <h2>이벤트 & 프로모션</h2>
+            <h2 class="m_title">이벤트 & 프로모션</h2>
+            <p>
+                다양한 이벤트 &amp; 프로모션과 함께 캐스퍼를 만나보세요.
+            </p>
+
+            <article class="e_slide">
+                <h3 class="d-none">이벤트 슬라이드</h3>
+                <ul class="e_slide_wrap">
+                    <li>
+                        <a href="#" title="이벤트배너1">
+                            <img src="./images/PC_main_banner_car_insurance.jpg" alt="이벤트배너1">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="이벤트배너2">
+                            <img src="./images/PC_Main_HGenuineAccessories.jpg" alt="이벤트배너2">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="이벤트배너3">
+                            <img src="./images/pc_mainEventBanner.jpg" alt="이벤트배너3">
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" title="이벤트배너4">
+                            <img src="./images/pc_mainEventBanner4.jpg" alt="이벤트배너4">
+                        </a>
+                    </li>
+                </ul>
+                <ul class="e_slide_bullet">
+                    <li class="on">
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                    <li>
+                        <a href="#"></a>
+                    </li>
+                </ul>
+                <i class="fas fa-angle-left"></i>
+                <i class="fas fa-angle-right"></i>
+            </article>
+
         </section>
 
 
         <section id="buy">
-            <h2>캐스퍼 구매 안내</h2>
+            <h2 class="m_title">캐스퍼 구매 안내</h2>
         </section>
 
 
         <section id="cs">
-            <h2>고객지원</h2>
+            <h2 class="m_title">고객지원</h2>
         </section>
 
 
@@ -259,27 +360,5 @@
     <footer>
         
     </footer>
-    <script>
-
-        const swiper = new Swiper('.swiper', {
-            loop: true,
-
-            // Navigation arrows
-            navigation: {
-                nextEl: '.swiper-button-next',
-                prevEl: '.swiper-button-prev',
-            },
-
-            speed: 600,
-            slidesPerView: 1.8,
-            centeredSlides: true,
-            spaceBetween: 30,
-            pagination: {
-                el: ".swiper-pagination",
-                clickable: true,
-            },
-        });
-
-    </script>
 </body>
 </html>

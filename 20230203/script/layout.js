@@ -4,7 +4,7 @@ $(function(){
 
     $(window).scroll(function(){
         let sPos = $(this).scrollTop();
-        console.log(sPos);
+        // console.log(sPos);
         if(sPos >= 600){
             $('header').addClass('h_on');
             $('header .gnb a, i.fas').addClass('on');
@@ -43,7 +43,7 @@ $(function(){
         $(element).each(function(i){
             $(element).eq(i).click(function(e){
                 e.preventDefault();
-                $('html, body').animate({scrollTop: $('main section').eq(i+2).offset().top - 70}, 500);
+                $('html, body').animate({scrollTop: $('main section').eq(i+2).offset().top - 20}, 500);
             });
         });
     };

@@ -11,6 +11,8 @@
     --bg-color01:#225499;
     --bg-color02:#042653;
     --bg-color03:#fff;
+    --f-size01:14px;
+    --f-size02:16px;
 }
 
 body {
@@ -26,5 +28,9 @@ a {
     text-decoration: none;
     color:var(--t-color01);
     font-size:12px;
+}
+
+.d-none {
+    display:none;
 }
 
