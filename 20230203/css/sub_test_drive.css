@@ -1,0 +1,70 @@
+@charset "utf-8";
+
+/* header */
+
+header {
+    background:#191919;
+}
+
+header i.fas {
+    color:var(--t-color02);
+}
+
+header .gnb li a {
+    font-size:1.2rem;
+    color:var(--t-color02);
+}
+
+/* content */
+
+main {
+    padding:60px 0;
+}
+
+fieldset {
+    width:400px;
+    margin:120px auto 0;
+    padding:80px;
+    font-size:16px;
+    line-height:24px;
+}
+
+legend {
+    font-size:36px;
+    text-align: center;
+    font-weight:bold;
+}
+
+fieldset > p {
+    display:flex;
+    margin-bottom:20px;
+}
+
+fieldset > p > label:first-of-type {
+    width:160px;
+}
+
+input:not([type=radio]){
+    width:100%;
+}
+
+p.button {
+    text-align: center;
+}
+
+p.button input {
+    border:none;
+    width:100px;
+    line-height:40px;
+    display:inline-block;
+    cursor: pointer;
+}
+
+input[type=submit]{
+    background:var(--bg-color01);
+    color:#fff;
+}
+
+input[type=reset]{
+
+}

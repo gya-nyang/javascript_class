@@ -63,6 +63,74 @@ header .gnb li a {
 
 
 
+/* footer */
+
+footer {
+    background:#191919;
+    padding:30px 0;
+}
+
+.footer_wrap {
+    display:flex;
+    width:1200px;
+    margin:0 auto;
+    color:#848484;
+    font-size:15px;
+    line-height:30px;
+}
+
+.f_logo {
+    margin-right:40px;
+}
+
+.footer_menu {
+    display:flex;
+    margin:-7px 0 10px;
+}
+
+.footer_menu li {
+    position:relative;
+    margin-right:38px;
+}
+
+.footer_menu li:nth-child(2) a {
+    color:#fff;
+}
+
+.footer_menu li a {
+    color:#848484;
+    font-size:15px;
+    vertical-align: top;
+}
+
+.footer_menu li:not(:last-child)::after {
+    content:'';
+    display:block;
+    width:1px;
+    height:10px;
+    background:#363636;
+
+    position:absolute;
+    right:-20px;
+    top:50%;
+    transform:translateY(-50%);
+}
+
+address {
+    display:flex;
+    flex-wrap:wrap;
+}
+
+address span {
+    display:block;
+    margin-right:38px;
+}
+
+address span a {
+    color:#505050;
+}
+
+
 
 
 
@@ -88,21 +156,9 @@ header .gnb li a {
 /* main nav */
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 /*  li에 포지션 */
 
-/* #m_nav {
+#m_nav {
     position:fixed;
     right:50px;
     top:50%;
@@ -122,6 +178,7 @@ header .gnb li a {
     text-align: center;
 
     transition: 0.5s;
+    overflow: hidden;
 }
 
 #m_nav li:nth-child(1) {
@@ -145,8 +202,10 @@ header .gnb li a {
 } 
 
 #m_nav li a {
+    display:none;
     color:#fff;
     font-size:14px;
+    transition: 0.5s;
 }
 
 #m_nav li span {
@@ -154,7 +213,7 @@ header .gnb li a {
     right:calc(100% - 30px);
     width:30px;
     line-height:30px;
-    background:#007fa8;
+    background:var(--t-color03);
     text-align: center;
     border-radius: 15px;
     color:#fff;
@@ -162,7 +221,11 @@ header .gnb li a {
 
 #m_nav li:hover {
     width:180px;
-} */
+}
+
+#m_nav li:hover a {
+    display:inline;
+}
 
 
 /* a에 포지션 */
@@ -227,7 +290,7 @@ header .gnb li a {
 
 /* 선생님 */
 
-#m_nav {
+/* #m_nav {
     position:fixed;
     right:50px;
     top:50%;
@@ -297,7 +360,7 @@ header .gnb li a {
 
 #m_nav li:hover {
     width:300px;
-}
+} */
 
 
 

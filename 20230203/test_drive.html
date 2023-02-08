@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>현대자동차 캐스퍼 - 시승신청 예약하기</title>
+    <!-- reset -->
+    <link rel="stylesheet" href="./css/reset.css" type="text/css">
+    <!-- base.css -->
+    <link rel="stylesheet" href="./css/base.css" type="text/css">
+    <!-- layout.css -->
+    <link rel="stylesheet" href="./css/layout.css" type="text/css">
+    <!-- sub_test_drive.css -->
+    <link rel="stylesheet" href="./css/sub_test_drive.css" type="text/css">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <!-- jquery ui -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    <!-- jquery cookie -->
+    <script src="./script/jquery.cookie.js"></script>
+
+    <!-- css3 prefix js -->
+    <script src="./script/prefixfree.min.js"></script>
+    <!-- layout.js -->
+    <script src="./script/layout.js"></script>
+</head>
+<body>
+    <header>
+        <h1>
+            <a href="index.html" title="메인페이지로 바로가기">
+                <img src="./images/logo-casper-white.png" alt="상단로고">
+            </a>
+        </h1>
+
+        <!-- 상단 스크롤시 고정 내비게이션 -->
+        <nav>
+            <ul class="gnb">
+                <li>
+                    <a href="#" title="소개">소개</a>
+                </li>
+                <li>
+                    <a href="#" title="체험">체험</a>
+                </li>
+                <li>
+                    <a href="#" title="이벤트">이벤트</a>
+                </li>
+                <li>
+                    <a href="#" title="구매안내">구매안내</a>
+                </li>
+                <li>
+                    <a href="#" title="고객지원">고객지원</a>
+                </li>
+            </ul>
+        </nav>
+
+
+        <i class="fas fa-user"></i>
+        <i class="fas fa-bell"></i>
+
+    </header>
+    
+    <main>
+        <form action="db_insert.php" name="시승신청" method="post">
+
+            <fieldset>
+                <legend>시승신청 온라인 예약</legend>
+                <p>
+                    <label for="name">고객명</label>
+                    <input type="text" name="name" id="name" required>
+                </p>
+                <p>
+                    <label for="phone_num">휴대폰</label>
+                    <input type="text" name="phone_num" id="phone_num" required>
+                </p>
+                <p>
+                    <label>SMS 수신여부</label>
+                    <label for="sms_yes">수신</label>
+                    <input type="radio" name="sms" id="sms_yes">
+                    <label for="sms_no">수신안함</label>
+                    <input type="radio" name="sms" id="sms_no">
+                </p>
+                <p>
+                    <label for="email">이메일 주소</label>
+                    <input type="email" name="email" id="email" required>
+                </p>
+                <p>
+                    <label for="region">전시장 선택</label>
+                    <select name="region" id="region" required>
+                        <option value="">전시장 선택</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </p>
+                <p>
+                    <label for="car">차량 선택</label>
+                    <select name="car" id="car" required>
+                        <option value="">차량 선택</option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                    </select>
+                </p>
+                <p>
+                    <label for="hold_car">보유차종</label>
+                    <input type="text" name="hold_car" id="hold_car" required>
+                </p>
+                <p>
+                    <label for="date">시승 희망일</label>
+                    <input type="date" name="date" id="date" required>
+                </p>
+                <p class="button">
+                    <input type="submit" value="예약하기">
+                    <input type="reset" value="취소하기">
+                </p>
+            </fieldset>
+
+        </form>
+    </main>
+
+    <footer>
+        <ul class="footer_wrap">
+            <li class="f_logo">
+                <h2>
+                    <a href="index.html" title="메인페이지로 이동">
+                        <img src="./images/logo-hyundai.a9ebdc6.png" alt="푸터 로고 이미지">
+                    </a>
+                </h2>
+            </li>
+            <li>
+                <nav>
+                    <ul class="footer_menu">
+                        <li><a href="#" title="이용약관">이용약관</a></li>
+                        <li><a href="#" title="개인정보 처리방침">개인정보 처리방침</a></li>
+                        <li><a href="#" title="저작권안내">저작권안내</a></li>
+                        <li><a href="#" title="공동인증서 안내">공동인증서 안내</a></li>
+                        <li><a href="#" title="현대자동차 홈페이지">현대자동차 홈페이지</a></li>
+                    </ul>
+                </nav>
+                <address>
+                    <span>사업자등록번호: 101-81-09147</span>
+                    <span>통신판매업신고번호: 2002-01546</span>
+                    <span>대표이사: 장재훈 <a href="#" title="사업자정보확인">사업자정보확인&gt;</a></span>
+                    <span>캐스퍼 고객센터: 080-500-6000</span>
+                    <span>주소: 서울시 서초구 헌릉로 12</span>
+                    <span>호스팅서비스 제공: 현대오토에버(주)</span>
+                </address>
+                <p>
+                    COPYRIGHT &copy; HYUNDAI MOTOR COMPANY, ALL RIGHTS RESERVED.
+                </p>
+            </li>
+        </ul>
+    </footer>
+</body>
+</html>
