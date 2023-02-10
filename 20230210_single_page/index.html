@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>다만프레르 반응형...??</title>
+    <!-- reset -->
+    <link rel="stylesheet" href="./css/reset.css" type="text/css">
+    <!-- base -->
+    <link rel="stylesheet" href="./css/base.css" type="text/css">
+    <!-- common -->
+    <link rel="stylesheet" href="./css/common.css" type="text/css">
+    <!-- main -->
+    <link rel="stylesheet" href="./css/main.css" type="text/css">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+
+    <script src="./script/prefixfree.min.js"></script>
+
+    <!-- jquery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <!-- jquery ui -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+    <!-- jquery cookie -->
+    <script src="./script/jquery.cookie.js"></script>
+
+    <script src="./script/main.js" defer></script>
+</head>
+<body>
+    <!-- header -->
+    <header>
+        <h1>
+            <a href="index.html" title="메인페이지 바로가기">
+                <img src="./images/logo.png" alt="상단로고">
+            </a>
+        </h1>
+        <nav class="gnb">
+            <ul class="depth1">
+                <li>
+                    <a href="#" title="제품 구입">제품 구입</a> <i class="fas fa-angle-down"></i>
+                    <ul class="depth2">
+                        <li>
+                            <a href="#" title="WHITE">WHITE</a>
+                        </li>
+                        <li>
+                            <a href="#" title="OOLONG">OOLONG</a>
+                        </li>
+                        <li>
+                            <a href="#" title="BLACK">BLACK</a>
+                        </li>
+                        <li>
+                            <a href="#" title="ROOIBOS">ROOIBOS</a>
+                        </li>
+                        <li>
+                            <a href="#" title="HERBAL">HERBAL</a>
+                        </li>
+                        <li>
+                            <a href="#" title="FRUIT">FRUIT</a>
+                        </li>
+                        <li>
+                            <a href="#" title="GREEN">GREEN</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" title="제품 설명">제품 설명</a> <i class="fas fa-angle-down"></i>
+                    <ul class="depth2">
+                        <li>
+                            <a href="#" title="BLACK TEAS">BLACK TEAS</a>
+                        </li>
+                        <li>
+                            <a href="#" title="FLAVORED TEA">FLAVORED TEA</a>
+                        </li>
+                        <li>
+                            <a href="#" title="WHITE TEAS">WHITE TEAS</a>
+                        </li>
+                        <li>
+                            <a href="#" title="INFUSIONS">INFUSIONS</a>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#" title=" 브랜드 스토리"> 브랜드 스토리</a>
+                </li>
+                <li>
+                    <a href="#" title="공지">공지</a>
+                </li>
+                <li>
+                    <a href="#" title="문의">문의</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- main -->
+    <main>
+        <!-- 슬라이드 -->
+        <section id="visual_slide">
+            <h2>메인 슬라이드</h2>
+            <div>
+                <strong class="title">DAMMANN<br><span>FRÈRES 01</span></strong>
+                <img src="./images/main_visual_01.jpg" alt="">
+            </div>
+            <div>
+                <strong class="title">DAMMANN<br><span>FRÈRES 02</span></strong>
+                <img src="./images/main_visual_02.jpg" alt="">
+            </div>
+            <div>
+                <strong class="title">DAMMANN<br><span>FRÈRES 03</span></strong>
+                <img src="./images/main_visual_03.jpg" alt="">
+            </div>
+
+            <ul class="s_btn">
+                <li>
+                    <img src="" alt="이전버튼">
+                    좌측버튼
+                </li>
+                <li>
+                    <img src="" alt="다음버튼">
+                    우측버튼
+                </li>
+            </ul>
+
+            <ul class="ctrl_btn">
+                <li class="on"></li>
+                <li></li>
+                <li></li>
+            </ul>
+
+
+        </section>
+
+        <!-- 뉴스 -->
+        <section id="intro">
+            <h2 class="d-none">다만프레르 소개</h2>
+            <article>
+                <div class="left">
+                    <h3>
+                        <strong class="title"><i>French Tea</i></strong>
+                        <br>
+                        <strong class="title">DAMMANN FRÈRES</strong>
+                    </h3>
+                    <p>
+                        오랜 역사와 전통의 가치 위에 품질을 향한
+                        <br>
+                        끊임없는 기술 혁신과 노력, 그리고 ‘향(Flavor)’의
+                        <br>
+                        문화적 가치를 열망하는 이들에 대한 감사의 마음은
+                        <br>
+                        오늘날 다만 프레르의 철학이 되었습니다.
+                    </p>
+                </div>
+                <div class="right">
+                    <img src="./images/main_intro_01.jpg" alt="다만프레르 소개 이미지1">
+                    <img src="./images/main_intro_02.jpg" alt="다만프레르 소개 이미지2">
+                </div>
+            </article>
+        </section>
+
+        <!-- 탭 콘텐츠 -->
+        <section id="tea_category">
+            <article>
+                <h2 class="d-none">탭 콘텐츠</h2>
+                <ul class="tab_cont">
+                    <li class="on">
+                        <a href="#" title="BLACK TEAS">
+                            <strong class="title">BLACK TEAS</strong>
+                        </a>
+                        <div class="cont">
+                            <h3>
+                                <strong class="title"><i>Les Thé Noir</i></strong>
+                                <br>
+                                <strong class="title">BLACK TEAS</strong>
+                            </h3>
+                            <p>
+                                오늘날 세계에서 가장 많이 생산되는 티(Tea)는 홍차(Black Tea) 입니다.
+                                <br>
+                                다만 프레르는 세계 3대 홍차인 다즐링(Darjeeling), 기문(Keemun) 홍차와 더불어
+                                <br>
+                                아쌈(Assam), 실론(Ceylon) 및 중국 홍차의 기원이라 불리우는
+                                <br>
+                                랍상소우총(Lapsang Souchong) 까지 최상급 품질의 정통 홍차를 제공합니다.
+                            </p>
+                            <ul class="img_area">
+                                <li>
+                                    <img src="./images/tea_cate_01_img1.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="./images/tea_cate_01_img2.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="./images/tea_cate_01_img3.jpg" alt="">
+                                    <a href="" title="" class="more_btn">
+                                        <img src="./images/more_btn.png" alt="">
+                                        <br>
+                                        <span>상품 카테고리로 이동</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" title="FLAVORED TEA">
+                            <strong class="title">FLAVORED TEA</strong>
+                        </a>
+                        <div class="cont">
+                            <h3>
+                                <strong class="title"><i>Les thés parfumés</i></strong>
+                                <br>
+                                <strong class="title">FLAVORED TEA</strong>
+                            </h3>
+                            <p>
+                                다만프레르는 지난 60년간 함께해온 향 전문가(Flavorist)의 감성과 연구를 통해
+                                <br>
+                                철저히 프랑스 본사에서만 다양한 맛과 향을 창조 및 개발해 온 결과,
+                                <br>
+                                현재까지 약 3,300여 종의 제품을 탄생시켰습니다.
+                            </p>
+                            <ul class="img_area">
+                                <li>
+                                    <img src="./images/tea_cate_02_img1.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="./images/tea_cate_02_img2.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="./images/tea_cate_02_img3.jpg" alt="">
+                                    <a href="" title="" class="more_btn">
+                                        <img src="./images/more_btn.png" alt="">
+                                        <br>
+                                        <span>상품 카테고리로 이동</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" title="WHITE TEAS">
+                            <strong class="title">WHITE TEAS</strong>
+                        </a>
+                        <div class="cont">
+                            <h3>
+                                <strong class="title"><i>Les Thé Noir</i></strong>
+                                <br>
+                                <strong class="title">WHITE TEAS</strong>
+                            </h3>
+                            <p>
+                                백차(White Tea)는 가장 고귀한 차로 분류되며
+                                <br>
+                                대부분 중국의 푸젠지방에서만 생산되는 품종을 통해 소량만이 제조되고 있습니다.
+                                <br>
+                                사람의 손을 거의 거치지 않고 제조되며 다만프레르만의 제조 공정을 만나
+                                <br>
+                                더욱더 기품있는 제품으로 탄생합니다.
+                            </p>
+                            <ul class="img_area">
+                                <li>
+                                    <img src="./images/tea_cate_03_img1.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="./images/tea_cate_03_img2.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="./images/tea_cate_03_img3.jpg" alt="">
+                                    <a href="" title="" class="more_btn">
+                                        <img src="./images/more_btn.png" alt="">
+                                        <br>
+                                        <span>상품 카테고리로 이동</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li>
+                        <a href="#" title="INFUSIONS">
+                            <strong class="title">INFUSIONS</strong>
+                        </a>
+                        <div class="cont">
+                            <h3>
+                                <strong class="title"><i>Les Infusions</i></strong>
+                                <br>
+                                <strong class="title">INFUSIONS</strong>
+                            </h3>
+                            <p>
+                                다만프레르의 INFUSION 이란 루이보스, 허브차, 과일차를 일컫습니다.
+                                <br>
+                                이 중 루이보스는 남아프리카 세더버그 지역의 북쪽에 자생하는 관목인 루이보스의 잎을
+                                <br>
+                                매년 여름에 수확하여 발효 등 일정한 공정을 거쳐 탄생됩니다.
+                                <br>
+                                민트, 라임블로썸, 캐모마일 등 단일 향료 식물로 만들어 지는 허브티와
+                                <br>
+                                다만프레르만의 천연 과일 향이 첨가된 과일티는 풍부한 맛과 향을 제공합니다.
+                            </p>
+                            <ul class="img_area">
+                                <li>
+                                    <img src="./images/tea_cate_04_img1.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="./images/tea_cate_04_img2.jpg" alt="">
+                                </li>
+                                <li>
+                                    <img src="./images/tea_cate_04_img3.jpg" alt="">
+                                    <a href="" title="" class="more_btn">
+                                        <img src="./images/more_btn.png" alt="">
+                                        <br>
+                                        <span>상품 카테고리로 이동</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </li>
+                </ul>
+            </article>
+        </section>
+
+        <!-- 제품소개 -->
+        <section id="creativity">
+            <h2 class="d-none">제품소개</h2>
+            <article>
+                <h3>
+                    <strong class="title"><i>Our Own</i></strong>
+                    <br>
+                    <strong class="title">CREATIVITY</strong>
+                </h3>
+                <p>
+                    다만 프레르의 핵심 노하우(Know-How)는 독창성(Creativity)으로 비롯 됩니다.
+                    <br>
+                    다만 프레르 만의 향 전문가(Flavorist)를 통해 창조된 우아한 향과 색깔의 정교한 블랜딩, 그리고 전문 티 블랜더들을 통해 탄생한
+                    <br>
+                    완벽하고 일관된 맛의 티는 그 어떤 제품과도 비교할 수 없는 다만 프레르 만의 매력 입니다.
+                    <br>
+                    또한 최고의 블랜드, 최상의 품질을 위해 오랜 시간 함께 해온 수많은 전문가들은 전세계의 산지를 직접 방문하여
+                    <br>
+                    프랑스 다만 프레르 본사로 정성스레 옮겨진 찻잎은 프랑스 파리 외각에 위치한 약 4,000평의 다만 프레르 생산 시설을 통해
+                    <br>
+                    직접 분류 및 블랜딩 되어 전 세계 약 60여개 국에 공급 되고 있습니다.
+                    <br>
+                    이렇게 창조된 다만 프레르의 오리지날 티 레시피는 현재까지 약 3,300여 종류를 자랑합니다.
+                </p>
+            </article>
+        </section>
+
+        <!-- 이벤트 -->
+        <section>
+            <h2>이벤트</h2>
+        </section>
+
+        <!-- 갤러리 -->
+        <section>
+            <h2>갤러리</h2>
+        </section>
+    </main>
+
+    <!-- footer -->
+    <footer></footer>
+</body>
+</html>

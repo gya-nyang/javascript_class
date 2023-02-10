@@ -1,0 +1,47 @@
+@charset "utf-8";
+
+/* 기본서식 */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    --b-size:12px;
+    --f-size01:14px;
+    --f-size02:16px;
+    --f-color01:#333;
+    --f-color02:#fff;
+    --bg-color01:#f36f21;
+    --bg-color02:#222;
+    --m-auto:0 auto;
+    --margin01:50px 0;
+}
+
+body {
+    font-family:'Noto Sans KR', '맑은 고딕', arial, sans-serif;
+    letter-spacing: -0.03em;
+    font-size:var(--b-size);
+    color:var(--f-color01);
+}
+
+strong.title {
+    font-family:'Playfair Display', serif;
+    letter-spacing:normal;
+}
+
+a {
+    text-decoration: none;
+    color:var(--f-color01);
+    font-size:var(--f-size01);
+}
+
+section article {
+    max-width:1260px;
+    width:100%;
+    margin:0 auto;
+    padding:120px 0;
+}
+
+.d-none {
+    display:none;
+}
