@@ -18,45 +18,56 @@
             //     }
             // });
 
-            document.write('<hr>');
+            // document.write('<hr>');
 
             $.getJSON('./data/test_drive.json', function(data){
 
-                document.write('<table>');
+                // document.write('<table>');
 
-                for(key in data){
-                    document.write('<tr>');
+                // for(key in data){
+                //     document.write('<tr>');
                         
-                    for(let i in data[key]){
-                        document.write(`<td>${data[key][i]}</td>`);
-                    };
+                //     for(let i in data[key]){
+                //         document.write(`<td>${data[key][i]}</td>`);
+                //     };
 
-                    document.write('</tr>');
-                }
+                //     document.write('</tr>');
+                // }
 
-                document.write('</table>');
+                // document.write('</table>');
+
+                // let print = "";
+                // print += '<table>';
+                // for(key in data){
+                //     print += '<tr>';
+                        
+                //     for(let i in data[key]){
+                //         print += `<td>${data[key][i]}</td>`;
+                //     };
+
+                //     print +='</tr>';
+                // }
+                // print += '<table>';
+                // $(".print").append(print);
+
+                // $.each활용 방법
+
+                let car_data="";
+                $.each(data,function(key,value){
+                    // console.log(key);
+                    // console.log(value);
+                    car_data += "<tr>"
+                    for(let i in value){
+                        car_data += `<td>${value[i]}</td>`;
+                    }
+                    car_data += "</tr>"
+                });
+                $(".print").append(car_data);
 
             });
 
             
-            // $.each활용 방법
-
-            // let car_data="";
-            // $.each(data,function(key,value){
-            // console.log(key);
-            // car_data+="<tr>"
-            // car_data+="<td>"+value.code+"</td>"
-            // car_data+="<td>"+value.name+"</td>"
-            // car_data+="<td>"+value.phone+"</td>"
-            // car_data+="<td>"+value.messenger+"</td>"
-            // car_data+="<td>"+value.email+"</td>"
-            // car_data+="<td>"+value.region+"</td>"
-            // car_data+="<td>"+value.s_car+"</td>"
-            // car_data+="<td>"+value.my_car+"</td>"
-            // car_data+="<td>"+value.date+"</td>"
-            // car_data+="</tr>"
-            // });
-            // $("#car_table").append(car_data);
+            
         });
     </script>
 </head>
@@ -65,6 +76,22 @@
     <p>
         닷홈 sql 데이터 베이스에 저장된 'test_drive'테이블의 자료를 'json'파일로 저장하여 자바스크립트로 출력해보기
     </p>
+
+    <!-- <div class="print"></div> -->
+
+    <table class="print">
+        <tr>
+            <th>code</th>
+            <th>name</th>
+            <th>phone</th>
+            <th>sms</th>
+            <th>email</th>
+            <th>region</th>
+            <th>s_car</th>
+            <th>my_car</th>
+            <th>date</th>
+        </tr>
+    </table>
 
 
 </body>
