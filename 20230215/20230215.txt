@@ -1,0 +1,7 @@
+0215_JSON+부트스트랩_안종현
+
+1. 라면정보 json데이터 배열로 출력하기
+https://gya-nyang.github.io/javascript_class/20230215/noodle_json_print.html
+
+2. 영화데이터(json)과 부트스트랩을 활용하여 데이터 출력하기
+https://gya-nyang.github.io/javascript_class/20230215/movie_list.html
